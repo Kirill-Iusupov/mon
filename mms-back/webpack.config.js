@@ -10,7 +10,7 @@ module.exports = {
     output: {
         path: path.join(__dirname),
         // path: path.join(__dirname, "build"),
-        filename: 'elumutu.js',
+        filename: 'mms.js',
         libraryTarget: 'var',
         library: 'app'
     }

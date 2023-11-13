@@ -1,7 +1,7 @@
 {
-  "name": "el-umutu-back",
+  "name": "mms-back",
   "version": "1.0.0",
-  "description": "stipendia",
+  "description": "mon management system",
   "main": "index.js",
   "scripts": {
     "start": "node index.js",

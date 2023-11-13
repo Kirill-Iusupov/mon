@@ -1,0 +1,51 @@
+.wrapper {
+  padding: 12px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  border-radius: 10px;
+  transition: all 0.25s ease-in;
+
+  .title {
+    color: var(--white700);
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 16px;
+    white-space: nowrap;
+
+    visibility: visible;
+    transition: all 0.25s ease-in;
+  }
+}
+
+.wrapper:hover {
+  .title {
+    color: var(--white);
+  }
+}
+
+.active {
+  background-color: var(--white);
+  transition: all 0.25s ease-in;
+
+  .icon path {
+    stroke: var(--primary);
+  }
+
+  .title {
+    color: var(--primary);
+  }
+}
+
+.active:hover {
+  .title {
+    color: var(--primary);
+  }
+}
+
+.collapsed {
+  .title {
+    visibility: hidden;
+    transition: all 0.25s ease-in;
+  }
+}

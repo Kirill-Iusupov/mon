@@ -1,0 +1,206 @@
+:root {
+  --primary: #3f139d;
+  --black: #1c1917;
+  --gray: #727d97;
+  --white: #fff;
+  --white700: rgba(255, 255, 255, 0.7);
+  --green: #05cd56;
+  --orange: #ff7800;
+  --yellow: #ffd60a;
+  --red: #ff4d4f;
+
+  --bg: #e9edff;
+  --content: #fff;
+  --stroke: #e9edff;
+  --gr: #3f139d;
+  --grv: linear-gradient(225deg, #bb65ff 0%, #4c6fff 100%);
+  --box-shadow: 0px 0px 20px rgba(40, 105, 254, 0.07);
+}
+
+body {
+  background: var(--bg);
+  margin: 0;
+}
+
+* {
+  // font-family: 'Poppins', sans-serif !important;
+  // scroll-behavior: smooth;
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+  color: var(--black);
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5 {
+  color: var(--black);
+  margin: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-weight: 600;
+}
+
+b {
+  font-weight: 600;
+}
+
+button:disabled {
+  color: var(--disableColor) !important;
+  background: var(--disableBg) !important;
+}
+
+input {
+  font-size: 14px;
+  background: none;
+  border: none;
+  width: 100%;
+  color: var(--black);
+}
+
+input::placeholder {
+  color: var(--placeholder);
+  font-family: 'Poppins', sans-serif;
+  font-weight: 400;
+}
+
+input[type='date'] {
+  position: relative;
+  padding: 0;
+  background-repeat: no-repeat;
+  background-position: bottom 0 right 0;
+  margin-right: -30px;
+  height: 100%;
+}
+
+input[type='date']::after {
+  content: '\f133';
+  font-family: FontAwesome;
+  position: absolute;
+  top: 6px;
+  right: 1px;
+  font-size: 17px;
+  color: var(--main_color);
+}
+
+input[type='date']::-webkit-calendar-picker-indicator {
+  color: transparent;
+  background: none;
+  z-index: 1;
+  position: relative;
+  cursor: pointer;
+}
+
+input:focus,
+input:focus-within,
+input:active,
+input:-internal-autofill-selected {
+  border: none;
+  box-shadow: none;
+  outline: none;
+  background: none !important;
+}
+
+textarea {
+  background: none;
+}
+
+textarea:focus,
+textarea:focus-within,
+textarea:active,
+textarea:-internal-autofill-selected {
+  border: none;
+  box-shadow: none;
+  outline: none;
+  background: none !important;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:focus {
+  transition: background-color 6000000000000s 0s, color 6000000000000s 0s !important;
+  -webkit-transition: background-color 6000000000000s 0s, color 6000000000000s 0s !important;
+  -moz-transition: background-color 6000000000000s 0s, color 6000000000000s 0s !important;
+  -ms-transition: background-color 6000000000000s 0s, color 6000000000000s 0s !important;
+  -o-transition: background-color 6000000000000s 0s, color 6000000000000s 0s !important;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--primary);
+  border-radius: 10px;
+}
+
+input {
+  caret-color: var(--primary);
+}
+
+button,
+[type='button'],
+[type='reset'],
+[type='submit'] {
+  background-color: var(--primary);
+}
+
+select {
+  background-color: var(--white);
+  color: var(--black);
+}
+
+//////////Ant Typography/////////////
+
+.ant-typography-secondary {
+  color: var(--gray) !important;
+}
+.ant-typography-success {
+  color: var(--primary) !important;
+}
+
+.ant-typography-warning {
+  color: var(--orange) !important;
+}
+
+.ant-typography-danger {
+  color: var(--red) !important;
+}
+
+.ant-typography {
+  margin: 0 !important;
+}
+
+.ant-typography:empty {
+  display: none;
+}
+
+/////////////ant Notification
+///
+/// /////////ant Notification
+
+.notification-type-success {
+  background-color: var(--green) !important;
+}
+
+.notification-type-error {
+  background-color: var(--red) !important;
+}
+
+.notification-type-warning {
+  background-color: var(--orange) !important;
+}

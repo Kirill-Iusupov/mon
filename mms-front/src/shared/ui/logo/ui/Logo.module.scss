@@ -1,0 +1,26 @@
+.wrapper {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.logo {
+  height: 60px;
+}
+
+.title {
+  padding-top: 10px;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 22px;
+  /* or 138% */
+
+  text-transform: uppercase;
+}
+
+@media only screen and (max-width: 450px) {
+  .title {
+    display: none;
+  }
+}

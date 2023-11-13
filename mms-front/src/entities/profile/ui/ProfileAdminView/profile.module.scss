@@ -1,0 +1,39 @@
+.wrapper {
+  display: flex;
+  gap: 24px;
+  align-items: center;
+}
+
+.datas {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.fio {
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 25px;
+  margin-bottom: 3px;
+}
+
+.other {
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 21px;
+  color: var(--gray);
+}
+
+@media screen and (max-width: 1024px) {
+  .wrapper {
+    gap: 20px;
+  }
+}
+@media screen and (max-width: 768px) {
+  .wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    align-items: flex-start;
+  }
+}

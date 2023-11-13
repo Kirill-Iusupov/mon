@@ -1,0 +1,42 @@
+.box {
+  background: var(--white);
+  box-shadow: var(--box-shadow);
+  border-radius: 10px;
+  overflow: hidden;
+  padding: 24px;
+  display: grid;
+  gap: 24px;
+  max-width: 100%;
+  // height: fit-content;
+}
+
+.title {
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 18px;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+@media screen and (max-width: 1024px) {
+  .box {
+    padding: 20px;
+    gap: 20px;
+  }
+  .content {
+    gap: 20px;
+  }
+}
+@media screen and (max-width: 768px) {
+  .box {
+    padding: 16px;
+    gap: 16px;
+  }
+  .content {
+    gap: 16px;
+  }
+}

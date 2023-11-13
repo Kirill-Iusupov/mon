@@ -1,0 +1,14 @@
+.LmsTextarea {
+  border: 1px solid var(--stroke) !important;
+  border-radius: 10px;
+  min-height: 120px !important;
+}
+
+.LmsTextarea:focus {
+  border-color: var(--primary) !important;
+}
+
+.LmsTextarea:hover {
+  border-color: var(--primary) !important;
+  border-inline-end-width: 1px !important;
+}

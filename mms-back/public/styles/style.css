@@ -1,0 +1,126 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --primary: #3f139d;
+  --white: #ffffff;
+  --bg: #f8f9fa;
+  --glass: linear-gradient(
+          112.83deg,
+          rgba(255, 255, 255, 0.82) 0%,
+          rgba(255, 255, 255, 0.8) 110.84%
+  );
+  --black: #1c1917;
+}
+
+body {
+  font-family: "Nunito Sans", sans-serif;
+}
+
+a {
+  text-decoration: none;
+}
+
+.loader {
+  display: inline-block;
+  width: 80px;
+  height: 80px;
+}
+.loader:after {
+  content: " ";
+  display: block;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 6px solid var(--primary);
+  border-color: var(--primary) transparent var(--primary) transparent;
+  animation: loader 1.2s linear infinite;
+}
+
+@keyframes loader {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.section {
+  padding-top: 16px;
+  height: 621px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 0;
+  background-color: var(--primary);
+  clip-path: polygon(0% 0%, 100% 0%, 100% 520px, 0% 100%);
+  background-image: url("../assets/effect.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.body {
+  margin: auto;
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  grid-gap: 40px;
+  max-width: 1440px;
+  padding: 24px;
+}
+
+.demand {
+  font-weight: 400;
+  font-size: 40px;
+  line-height: 55px;
+  margin-top: 216px;
+  text-align: center;
+}
+
+.title_demand {
+  margin-top: 20px;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 25px;
+  text-align: center;
+  color: rgba(0, 0, 0, 0.7);
+}
+
+.collapse {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 20px;
+}
+
+.collapse__item {
+  box-shadow: -1px 3px 6px 0px #c9c4c4;
+  padding: 10px;
+  width: 100%;
+  max-width: 573px;
+  cursor: pointer;
+  border-radius: 10px;
+  background-color: #fff;
+  margin-top: 10px;
+  border-radius: 10px;
+  overflow-y: hidden;
+}
+
+.collapse__item__title {
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 33px;
+}
+
+.collapse__item__answer {
+  background-color: #efefef;
+  color: #000;
+  border-radius: 10px;
+  padding: 20px;
+  margin-top: 10px;
+}

@@ -1,0 +1,44 @@
+.cell {
+  padding: 24px;
+  display: grid;
+  grid-gap: 5px;
+  border-right: 1px solid var(--stroke);
+  border-bottom: 1px solid var(--stroke);
+  margin-right: -1px;
+  margin-bottom: -1px;
+}
+
+.success {
+  background-color: rgba(5, 205, 86, 0.1);
+}
+
+.error {
+  background: rgba(255, 77, 79, 0.1);
+}
+
+.status {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 11px;
+}
+
+.stSuccess {
+  color: var(--green);
+}
+
+.stError {
+  color: var(--red);
+}
+
+@media screen and (max-width: 1024px) {
+  .cell {
+    padding: 20px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .cell {
+    padding: 16px;
+  }
+}

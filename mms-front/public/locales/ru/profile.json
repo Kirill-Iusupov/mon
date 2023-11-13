@@ -1,0 +1,21 @@
+{
+  "personalData": "Персональные данные",
+  "passportData": "Паспортные данные",
+  "contactData": "Контактные данные",
+  "title": "Профиль",
+  "fio": "ФИО",
+  "surname": "Фамилия",
+  "name": "Имя",
+  "patronymic": "Отчество",
+  "pol": "Пол",
+  "bdate": "Дата рождения",
+  "pin": "Пин",
+  "passport": "Номер паспорта",
+  "passportDate": "Дата выдачи",
+  "nationality": "Национальность",
+  "citizenship": "Гражданство",
+  "INN": "ИНН",
+  "phone_mobile": "Телефон",
+  "education": "Образование",
+  "yearShort": "г."
+}

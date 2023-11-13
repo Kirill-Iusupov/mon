@@ -1,0 +1,32 @@
+.LmsModal .ant-modal-content {
+  background-color: #f8f8fb !important;
+  border-radius: 10px;
+  padding: 24px;
+
+  .ant-modal-header {
+    background: none !important;
+    margin-bottom: 24px;
+  }
+  .ant-modal-footer {
+    margin-top: 24px;
+  }
+
+  .ant-modal-close-x {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .LmsModal .ant-modal-content {
+    padding: 20px;
+
+    .ant-modal-header {
+      margin-bottom: 20px;
+    }
+    .ant-modal-footer {
+      margin-top: 20px;
+    }
+  }
+}

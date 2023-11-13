@@ -1,0 +1,21 @@
+{
+  "personalData": "Жеке маалымат",
+  "passportData": "Паспорт маалыматтары",
+  "contactData": "Байланыш маалыматтары",
+  "title": "Профиль",
+  "fio": "АТЫ-жөнү",
+  "surname": "Фамилиясы",
+  "name": "Аты",
+  "patronymic": "Атасынын аты",
+  "pol": "Жынысы",
+  "bdate": "Туулган күнү",
+  "pin": "Жин",
+  "passport": "Паспорттун номери",
+  "passportDate": "Берилген күнү",
+  "nationality": "Улуту",
+  "citizenship": "Жарандыгы",
+  "INN": "ИСН",
+  "phone_mobile": "Телефон",
+  "education": "Билими",
+  "yearShort": "ж."
+}

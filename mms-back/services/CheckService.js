@@ -6,22 +6,22 @@ const JWT = require("../utils/jwt");
 const returnMessage = (resp, message) => send(resp, false, message, true, 401);
 
 async function is_challenger(req, res, next) {
-  return await check(req, res, next, false);
+  return await check(req, res, next);
 }
 
 async function is_staff(req, res, next) {
-  return await check(req, res, next, true);
+  return await check(req, res, next);
 }
 async function is_staff_or_challenger(req, res, next) {
-  return await check(req, res, next, 0);
+  return await check(req, res, next);
 }
 
-async function check(req, res, next, is_staff) {
+async function check(req, res, next) {
   if (Config.NODE_ENV === "development" && Config.FAKE_AUTH_MODE === "true") {
     // development FAKE_ID
     next();
   } else {
-    const IsAuthenticated = await COOKIE.CHECK_PERM(req, is_staff);
+    const IsAuthenticated = await COOKIE.CHECK_PERM(req);
     if (IsAuthenticated) {
       next();
     } else {

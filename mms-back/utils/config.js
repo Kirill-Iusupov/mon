@@ -1,6 +1,6 @@
 require("dotenv").config();
 
-const APP_URL = process.env.APP_URL || "elumutu";
+const APP_URL = process.env.APP_URL || "mms";
 const AVATAR_PATH = process.env.AVATAR_PATH || "C:\\";
 const DOC_PATH = process.env.DOC_PATH || "C:\\";
 const JWT_ACCESS_SECRET =
@@ -9,8 +9,8 @@ const JWT_ACCESS_SECRET =
 const JWT_EXPIRE_HOURS = process.env.JWT_EXPIRE_HOURS || "30h";
 
 console.log({ JWT_ACCESS_SECRET });
-const COOKIE_NAME = process.env.COOKIE_NAME || "tokenElUmutu";
-const COOKIE_PATH = process.env.COOKIE_PATH || "/elumutu/api";
+const COOKIE_NAME = process.env.COOKIE_NAME || "tokenmms";
+const COOKIE_PATH = process.env.COOKIE_PATH || "/mms/api";
 const MAX_AGE = process.env.MAX_AGE || "6000000";
 
 const ALLOW_HOST = process.env.ALLOW_HOST || "http://mon.sc.on.kg";

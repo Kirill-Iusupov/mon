@@ -43,7 +43,7 @@ app.use(fileUpload());
 app.use(translator);
 // app.use("/public", express.static("public"));
 app.use("/", express.static("public"));
-// app.use("/elumutu", express.static("public"));
+app.use("/mms", express.static("public"));
 
 //**********************************************************
 if (Config.FAKE_AUTH_MODE === "true") {
@@ -52,35 +52,24 @@ if (Config.FAKE_AUTH_MODE === "true") {
 //**********************************************************
 
 ///////////////////////////
-app.use("/elumutu/api/user", require("./user"));
-app.use("/elumutu/api/register", require("./register"));
-// app.use("/elumutu/api/challenger", require("./challenger"));
-app.use("/elumutu/api/doc", require("./challengerDoc"));
-app.use("/elumutu/api/info", require("./challengerInfo"));
-app.use("/elumutu/api/personal", require("./challengerPersonal"));
-app.use("/elumutu/api/university", require("./challengerUniversity"));
-app.use("/elumutu/api/mon", require("./monList"));
-app.use("/elumutu/api/chal", require("./monChallenger"));
-app.use("/elumutu/api/shared", require("./shared"));
+app.use("/mms/api/user", require("./user"));
+app.use("/mms/api/personal", require("./personal"));
+app.use("/mms/api/schedule", require("./schedule"));
+app.use("/mms/api/structure", require("./structure"));
+app.use("/mms/api/business", require("./business"));
+app.use("/mms/api/report", require("./report"));
+// app.use("/mms/api/challenger", require("./challenger"));
+// app.use("/mms/api/doc", require("./challengerDoc"));
+// app.use("/mms/api/info", require("./challengerInfo"));
+// app.use("/mms/api/personal", require("./challengerPersonal"));
+// app.use("/mms/api/university", require("./challengerUniversity"));
+// app.use("/mms/api/mon", require("./monList"));
+// app.use("/mms/api/chal", require("./monChallenger"));
+app.use("/mms/api/shared", require("./shared"));
 
-app.use("/elumutu/:frontpage", (req, res, next) => {
-  const { frontpage } = req.params;
-  if (frontendRoutes.some((v) => frontpage === v)) {
-    // Will only return when the `str` is included in the `substrings`
-    return res.sendFile(`${__dirname}/public/elumutu/index.html`);
-  }
-  next();
+app.use("/", (_req, res, _next) => {
+  res.sendFile(`${__dirname}/public/index.html`);
 });
-app.use("/elumutu/challenger/:id", (req, res, next) => {
-  const { id } = req.params;
-  if (parseInt(id) > 0) {
-    return res.sendFile(`${__dirname}/public/elumutu/index.html`);
-  }
-  next();
-});
-// app.use("/", (_req, res, _next) => {
-//   res.sendFile(`${__dirname}/public/index.html`);
-// });
 
 // app.use(Sentry.Handlers.errorHandler());
 

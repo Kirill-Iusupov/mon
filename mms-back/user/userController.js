@@ -10,42 +10,19 @@ const UserService = require("./userService");
 const Config = require("../utils/config");
 class UserController {
   async login(req, res) {
-    // const is_staff = req.params.is_staff === "staff" ? true : false;
-
-    const isValid = validate(
-      req.body,
-      UserSchema.userSchema
-      // is_staff ? UserSchema.userAdminSchema : UserSchema.userChallengerSchema
-    );
+    const isValid = validate(req.body, UserSchema.userSchema);
     const { login, password } = req.body;
-    // const is_staff = req.params.is_staff === "staff" ? true : false;
-    // const pattern = /^[0-9]*$/;
-    // const pattern = /^[a-zA-Z0-9]*$/;
-    // const matchStatus = pattern.test(login);
-    const is_staff = Utils.isNumeric(login) ? false : true;
-    
-    const loginLen = String(login).length;
-    const matchStatus = is_staff ? loginLen >= 4 : loginLen === 14;
-    if (!isValid || !matchStatus) {
-      logDB(
-        "inValidFormat",
-        "EXCEPTION",
-        "login",
-        JSON.stringify({ ...req.body, isValid, matchStatus, is_staff }),
-        0,
-        is_staff
-      );
+
+    if (!isValid) {
       return send(res, false, req.t("inValidFormat"), true, 400);
     }
-    const id = await UserService.login(String(login), password, is_staff);
-    if (id) {
-      const user = await UserService.userName(id, is_staff);
-      const role = await UserService.userRole(id, is_staff);
+    const user = await UserService.login(String(login), password);
+    if (user) {
       const exp =
         Date.now() + parseInt(Config.JWT_EXPIRE_HOURS) * 60 * 60 * 1000;
       const token = TokenService.generateAccessToken({
-        id: id,
-        type: role,
+        id: user.id,
+        type: user.role,
         s: user.surname,
         n: user.name,
         p: user.patronymic,
@@ -53,14 +30,7 @@ class UserController {
       });
       if (!token) return send(res, false, "tokenGenerateError", true, 400);
       const tokenBearer = "Bearer " + token;
-      const logged = await COOKIE.LOGIN(
-        req,
-        res,
-        is_staff,
-        login,
-        id,
-        tokenBearer
-      );
+      // const logged = await COOKIE.LOGIN(req, res, login, user.id, tokenBearer);
 
       res.cookie(Config.COOKIE_NAME, tokenBearer, {
         // maxAge: Config.MAX_AGE,
@@ -70,13 +40,13 @@ class UserController {
         SameSite: "None",
       });
 
-      if (logged && user) {
+      if (user) {
         // return send(res, { id, is_staff, token: logged }, req.t('success'), false, 200);
         return send(
           res,
           {
             authState: {
-              type: role,
+              type: user.role,
               s: user.surname,
               n: user.name,
               p: user.patronymic,
@@ -109,12 +79,9 @@ class UserController {
       return send(res, false, "noCookie", true, 401);
     }
     const userData = TokenService.getTokenData(token);
-    const is_staff = userData.type === 1 ? false : true;
-
-    const dbAuthCheck = await COOKIE.CHECK_PERM(req, is_staff);
 
     // console.log({ userData })
-    if (userData && userData.exp > new Date() && dbAuthCheck)
+    if (userData && userData.exp > new Date())
       return send(
         res,
         {
@@ -142,23 +109,10 @@ class UserController {
       SameSite: "None",
     });
     return send(res, false, "error", true, 401);
-    // const cookie = req.cookies[Config.COOKIE_NAME];
-    //const cookie = req.headers["authorization"];
-    // const user = await UserService.getUser(cookie);
-    // if (user) {
-    //   return send(
-    //     res,
-    //     { id: user.id, is_staff: user.staff, token: cookie },
-    //     req.t("success"),
-    //     false,
-    //     200
-    //   );
-    // }
-    // return send(res, false, req.t("unauth"), true, 401);
   }
 
   async logout(req, res) {
-    await COOKIE.LOGOUT(req, res);
+    // await COOKIE.LOGOUT(req, res);
     res.cookie(Config.COOKIE_NAME, "tokenWillBeDeleted", {
       maxAge: 0,
       httpOnly: true,

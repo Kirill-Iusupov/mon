@@ -53,7 +53,7 @@ async function GetUser(req) {
 }
 
 //true false
-async function Check(req, is_staff = 0) {
+async function Check(req) {
   const user = await GetUser(req);
   req.user = user;
   if (user && (user.staff === is_staff || is_staff === 0)) {

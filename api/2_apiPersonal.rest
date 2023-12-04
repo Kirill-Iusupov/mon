@@ -1,0 +1,51 @@
+###
+# personal list
+GET http://localhost:5000/mms/api/personal HTTP/1.1
+content-type: application/json
+
+###
+# personal insert
+PUT http://localhost:5000/mms/api/personal HTTP/1.1
+content-type: application/json
+
+{
+"name":"Name", 
+"surname":"Surname", 
+"patronymic":"Patronymic", 
+"birthDate":"2002-01-02", 
+"pin":12345678901112, 
+"password":"password"
+}
+
+###
+# personal update
+POST http://localhost:5000/mms/api/personal HTTP/1.1
+content-type: application/json
+
+{
+"id":13,
+"name":"Name", 
+"surname":"Surname", 
+"patronymic":"Patronymic", 
+"birthDate":"2002-01-01", 
+"pin":12345678901234
+}
+###
+# personal delete
+DELETE http://localhost:5000/mms/api/personal HTTP/1.1
+content-type: application/json
+
+{
+"id":14
+}
+
+###
+# personal password update
+POST http://localhost:5000/mms/api/personal/pass HTTP/1.1
+content-type: application/json
+
+{
+"id":13,
+"password":"123"
+}
+ 

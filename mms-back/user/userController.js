@@ -30,7 +30,14 @@ class UserController {
       });
       if (!token) return send(res, false, "tokenGenerateError", true, 400);
       const tokenBearer = "Bearer " + token;
-      // const logged = await COOKIE.LOGIN(req, res, login, user.id, tokenBearer);
+      const logged = await COOKIE.LOGIN(
+        req,
+        res,
+        login,
+        user.id,
+        user.role,
+        tokenBearer
+      );
 
       res.cookie(Config.COOKIE_NAME, tokenBearer, {
         // maxAge: Config.MAX_AGE,
@@ -40,7 +47,7 @@ class UserController {
         SameSite: "None",
       });
 
-      if (user) {
+      if (user && logged) {
         // return send(res, { id, is_staff, token: logged }, req.t('success'), false, 200);
         return send(
           res,
@@ -112,7 +119,7 @@ class UserController {
   }
 
   async logout(req, res) {
-    // await COOKIE.LOGOUT(req, res);
+    await COOKIE.LOGOUT(req, res);
     res.cookie(Config.COOKIE_NAME, "tokenWillBeDeleted", {
       maxAge: 0,
       httpOnly: true,

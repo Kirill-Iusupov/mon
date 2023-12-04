@@ -5,6 +5,9 @@ const JWT = require("../utils/jwt");
 
 const returnMessage = (resp, message) => send(resp, false, message, true, 401);
 
+async function is_admin(req, res, next) {
+  return await check(req, res, next);
+}
 async function is_challenger(req, res, next) {
   return await check(req, res, next);
 }
@@ -30,6 +33,19 @@ async function check(req, res, next) {
   }
 }
 
+const isAdminToken = async (req, resp, next) => {
+  return await checkToken(req, resp, next, [1]);
+};
+const isGeneralToken = async (req, resp, next) => {
+  return await checkToken(req, resp, next, [2]);
+};
+const isHRToken = async (req, resp, next) => {
+  return await checkToken(req, resp, next, [3]);
+};
+const isEmpToken = async (req, resp, next) => {
+  return await checkToken(req, resp, next, [4]);
+};
+
 const isChallengerToken = async (req, resp, next) => {
   return await checkToken(req, resp, next, [1]);
 };
@@ -43,7 +59,7 @@ const isExpertToken = async (req, resp, next) => {
   return await checkToken(req, resp, next, [4]);
 };
 const isMonOrAparatToken = async (req, resp, next) => {
-  return await checkToken(req, resp, next, [2,3]);
+  return await checkToken(req, resp, next, [2, 3]);
 };
 const isStaffToken = async (req, resp, next) => {
   return await checkToken(req, resp, next, [2, 3, 4]);
@@ -115,5 +131,10 @@ module.exports = {
   isStaffToken,
   getTokenData,
   isExpertToken,
-  isMonOrAparatToken
+  isMonOrAparatToken,
+
+  isAdminToken,
+  isGeneralToken,
+  isHRToken,
+  isEmpToken,
 };

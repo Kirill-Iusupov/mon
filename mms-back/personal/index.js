@@ -1,3 +1,3 @@
-const challengerRoute = require('./challengerRoute');
+const personalRoute = require('./personalRoute');
 
-module.exports = challengerRoute;
+module.exports = personalRoute;

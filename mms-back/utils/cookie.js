@@ -56,7 +56,7 @@ async function GetUser(req) {
 async function Check(req) {
   const user = await GetUser(req);
   req.user = user;
-  if (user && (user.staff === is_staff || is_staff === 0)) {
+  if (user) {
     return true;
   } else {
     return false;
@@ -64,7 +64,7 @@ async function Check(req) {
 }
 
 //true false
-async function Login(req, res, is_staff, login, id, token = false) {
+async function Login(req, res, login, id, role, token = false) {
   // if cookies does not exist then save generated cookieId to res.cookies then insert into session
   const isMobile = String(req.cookies[COOKIE_MOBILE]) == "true" ? true : false;
   const cookieIdToken = token ? token : await Generate(res);
@@ -85,36 +85,36 @@ async function Login(req, res, is_staff, login, id, token = false) {
                                              SET offline=false, 
                                                  last_action=current_timestamp, 
                                                  cookie=$2, 
-                                                 is_staff=$3, 
-                                                 id_user=$4, 
+                                                 id_user=$3, 
+                                                 id_role=$4, 
                                                  is_mobile=$5
                                              WHERE login=$1`,
-      [String(login), cookieId, is_staff, id, isMobile]
+      [String(login), cookieId, id, role, isMobile]
     );
-    if (updated) await LoginLog(String(login), is_staff, id, isMobile, ip);
+    if (updated) await LoginLog(String(login), id, role, isMobile, ip);
     return cookieIdToken;
     // return !!updated;
   } else {
     // console.log(String(req.cookies['isMobile']), isMobile);
     const { rowCount: inserted } = await db.query(
       `
-            INSERT INTO "Session" (cookie, is_staff, login, id_user, last_action, is_mobile)
+            INSERT INTO "Session" (cookie, login, id_user, id_role, last_action, is_mobile)
             VALUES ($1, $2, $3, $4, current_timestamp, $5)`,
-      [cookieId, is_staff, login, id, isMobile]
+      [cookieId, login, id, role, isMobile]
     );
     // console.log(inserted);
-    if (inserted) await LoginLog(String(login), is_staff, id, isMobile, ip);
+    if (inserted) await LoginLog(String(login), id, role, isMobile, ip);
     return cookieIdToken;
     // return !!inserted;
   }
 }
 
-async function LoginLog(login, is_staff, id, isMobile, ip) {
+async function LoginLog(login, id, role, isMobile, ip) {
   const { rowCount } = await db.query(
     `
-        INSERT INTO "Session_log" (login, is_staff, id_user, log_time, is_mobile, ip)
+        INSERT INTO "Session_log" (login, id_user, id_role, log_time, is_mobile, ip)
         VALUES ($1, $2, $3, current_timestamp, $4, $5)`,
-    [login, is_staff, id, isMobile, ip]
+    [login, id, role, isMobile, ip]
   );
 
   if (rowCount) return true;

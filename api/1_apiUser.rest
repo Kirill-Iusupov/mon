@@ -1,0 +1,25 @@
+###
+# Login
+POST http://localhost:5000/mms/api/user/login HTTP/1.1
+content-type: application/json
+
+{
+     "login": 123654789,
+     "password": "proverka1"
+ }
+
+###
+# check
+POST http://localhost:5000/mms/api/user/check HTTP/1.1
+content-type: application/json
+
+{}
+
+###
+# logout
+POST http://localhost:5000/mms/api/user/logout HTTP/1.1
+content-type: application/json
+
+{}
+ 
+ 

@@ -1,81 +1,52 @@
 .SiderWrapper {
+  background: var(--gr);
   padding: 30px 24px;
-  height: 100vh;
-  width: 288px;
+  border-radius: 16px;
+  height: calc(100vh - 32px);
+  width: 320px;
 
   display: flex;
   flex-direction: column;
   gap: 10px;
   justify-content: space-between;
   transition: width 0.3s ease-in;
-
   position: sticky;
-  z-index: 1;
-  top: 0px;
-  bottom: 0px;
+  top: 16px;
+  bottom: 16px;
 
   overflow-y: auto;
   overflow-x: hidden;
 }
 
-.user {
-  margin-bottom: 20px;
-}
-
 .collapsed {
-  width: 96px;
+  width: 72px;
   transition: width 0.3s ease-in;
 }
 
-.routes {
-  display: flex;
-  flex-direction: column;
-  gap: 3px;
-}
-
-.settings_logout {
-  padding-top: 20px;
-  border-top: 1px solid var(--white700);
+.line {
+  background: var(--white);
+  opacity: 0.3;
+  height: 1px;
+  border-radius: 100%;
+  width: 100%;
 }
 
 @media screen and (max-width: 768px) {
-  .bg {
-    background: rgba(13, 4, 34, 0.3);
-    width: 100%;
-    position: fixed;
-    top: 62px;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    z-index: 9;
-  }
-
-  .collapsedBg {
-    left: -100%;
-  }
-
   .SiderWrapper {
     position: fixed;
     z-index: 9;
-    top: 62px;
+    top: 64px;
     bottom: 0;
     left: 0;
     right: 0;
+    background: var(--gr);
     padding: 24px 16px;
     border-radius: 0;
-    background: rgba(63, 19, 157, 0.6);
-    /* glass */
-
-    box-shadow: 0px 2px 5.5px rgba(0, 0, 0, 0.02);
-    backdrop-filter: blur(10.5px);
     height: calc(100vh - 64px);
+    width: 100%;
     overflow-y: auto;
 
-    transition: all 0.2s ease-in;
-  }
-
-  .user {
-    margin-bottom: 20px;
+    transition: all 0.25s ease-in;
   }
 
   .collapsed {
@@ -84,11 +55,7 @@
     top: 64px;
     bottom: 0;
     width: 100%;
-    transition: all 0.2s ease-in;
+    transition: all 0.25s ease-in;
   }
 
-  .rotatedLogo {
-    transform: rotate(0);
-    height: auto;
-  }
 }

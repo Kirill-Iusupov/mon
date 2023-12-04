@@ -1,23 +1,27 @@
 .wrapper {
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
-  align-items: flex-start;
-  gap: 8px;
-  min-height: 124px;
+  align-items: center;
+  justify-content: center;
 
   .fioRole {
     display: flex;
     flex-direction: column;
+    align-items: center;
     justify-content: center;
-    gap: 2px;
+    gap: 3px;
     margin-top: 10px;
+
+    visibility: visible;
+    opacity: 1;
+    transition: all 0.3s ease-in;
   }
 
   .fio {
     font-weight: 600;
     font-size: 16px;
     line-height: 22px;
+    text-align: center;
     color: var(--white);
     max-height: 44px;
     overflow: hidden;
@@ -25,8 +29,9 @@
 
   .role {
     font-weight: 400;
-    font-size: 14px;
-    line-height: 26px;
+    font-size: 15px;
+    line-height: 18px;
+    text-align: center;
     letter-spacing: 0.5px;
     color: var(--white);
     opacity: 0.5;
@@ -34,10 +39,29 @@
 }
 
 .collapsed {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
   .fioRole {
-    display: none;
+    visibility: hidden;
+    opacity: 0;
+    transition: all 0.15s linear;
+    height: 0;
+    margin-top: 0;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .collapsed {
+    .fioRole {
+      visibility: unset;
+      opacity: unset;
+      height: unset;
+      margin-top: 10px;
+    }
   }
 }

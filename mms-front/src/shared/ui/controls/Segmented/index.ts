@@ -1,1 +1,2 @@
-export { Segmented } from 'antd';
+import Segmented from 'antd/es/segmented';
+export { Segmented };

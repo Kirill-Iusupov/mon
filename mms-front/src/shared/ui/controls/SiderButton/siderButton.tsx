@@ -24,13 +24,13 @@ export const SiderButton: FC<SiderButtonProps> = ({
   const btnClass = (isActive: boolean) => {
     return classNames(
       styles.wrapper,
-      collapsed ? styles.collapsed : '',
+      collapsed ? styles.iconly : styles.titlely,
       isActive ? styles.active : ''
     );
   };
 
   return (
-    <Tooltip title={title} placement="right" zIndex={collapsed ? 11 : -1}>
+    <Tooltip title={collapsed && title} placement="right">
       <NavLink className={({ isActive }) => btnClass(isActive)} to={path} onClick={onClick}>
         <div className={styles.icon}>{icon}</div>
         <div className={styles.title}>{title}</div>

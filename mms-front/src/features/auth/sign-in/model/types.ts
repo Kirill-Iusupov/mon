@@ -1,7 +1,7 @@
 import { ApiSignInResponseData } from '../api/types';
 
 export interface SignInFormValues {
-  login: string;
+  email: string;
   password: string;
 }
 

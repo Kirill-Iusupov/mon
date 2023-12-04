@@ -4,111 +4,55 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: var(--primary);
-  position: relative;
-  overflow: hidden;
-}
-
-.Circles {
-  width: 846px;
-  height: 709px;
-  position: absolute;
-  left: -369px;
-  top: -264px;
-}
-
-.Wave {
-  position: absolute;
-  width: 100vw;
-  left: 0;
-  right: 0;
-  top: 70vh;
+  background: linear-gradient(
+    235.03deg,
+    rgba(65, 140, 209, 0.8) 24.69%,
+    rgba(156, 65, 209, 0.8) 88.2%
+  );
 }
 
 .wrapper {
-  position: relative;
-  z-index: 1;
   width: 80%;
-  max-width: 1024px;
-  background: white;
+  height: 85%;
+  background: rgba(233, 237, 255, 0.9);
   box-shadow: 0px 2px 4px rgba(33, 36, 41, 0.05);
-  border-radius: 10px;
-  padding: 30px;
-  display: flex;
-  gap: 16px;
+  border-radius: 16px;
+  padding: 25px;
+  display: grid;
+  justify-content: center;
   align-items: center;
-  justify-content: space-between;
-  overflow: auto;
-  flex-direction: column;
+  justify-items: center;
+  overflow: hidden;
   position: relative;
-  height: 85vh;
-  max-height: 844px;
-  min-height: 660px;
-
-  .WrapperWave {
-    position: absolute;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    width: 100%;
-  }
-}
-
-.bg__link {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 19px;
-  color: var(--gr);
-  width: 100%;
-
-  .goToIndexPage {
-    display: flex;
-    gap: 10px;
-    align-items: center;
-    color: var(--primary);
-    cursor: pointer;
-  }
 }
 
 .form {
-  max-width: 460px;
-  width: 100%;
+  max-width: 450px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   justify-items: center;
   gap: 40px;
+  position: absolute;
   z-index: 1;
 }
 
-.welcom_logo_title {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 30px;
+.welcome {
+  background: var(--gr);
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 27px;
+  text-align: center;
+}
 
-  .welcome {
-    color: var(--black);
-    font-weight: 600;
-    font-size: 18px;
-    line-height: 27px;
-    letter-spacing: 0.005em;
-    text-align: center;
-  }
-
-  .title_st {
-    font-weight: 600;
-    font-size: 21px;
-    line-height: 32px;
-    text-align: center;
-    letter-spacing: 0.005em;
-    color: var(--primary);
-  }
+.vuzname {
+  font-weight: 700;
+  font-size: 21px;
+  line-height: 32px;
+  text-align: center;
 }
 
 .inputsWrapper {
@@ -119,7 +63,6 @@
 }
 
 .errMessage {
-  width: 100%;
   font-size: 14px;
   color: var(--red);
   position: absolute;
@@ -129,73 +72,80 @@
   z-index: 1;
 }
 
-.lang {
-  display: flex;
-  justify-content: center;
-  gap: 40px;
-  font-weight: 500;
-  line-height: 24px;
-  font-size: 14px;
+ 
 
-  div {
-    cursor: pointer;
-  }
+.circleTopRight {
+  position: absolute;
+  width: 295px;
+  height: 295px;
+  right: -147px;
+  top: -40px;
+  border-radius: 100%;
+  background: var(--gr);
+  opacity: 0.3;
 }
-
-.unregistered_register {
-  position: relative;
-  z-index: 2;
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-
-  .unregistered {
-    font-weight: 400;
-    font-size: 14px;
-    line-height: 22px;
-    opacity: 0.5;
-    color: var(--primary);
-  }
-
-  .register {
-    font-weight: 600;
-    font-size: 16px;
-    line-height: 22px;
-    color: var(--primary);
-  }
+.circleBottomLeft1 {
+  position: absolute;
+  width: 124px;
+  height: 124px;
+  left: -24px;
+  bottom: 189px;
+  border-radius: 100%;
+  background: var(--gr);
+  opacity: 0.3;
 }
-
-@media only screen and (max-width: 1024px) {
-  .wrapper {
-    width: 90%;
-    padding: 20px;
-  }
+.circleBottomLeft2 {
+  position: absolute;
+  width: 295px;
+  height: 295px;
+  left: -87px;
+  bottom: -59px;
+  border-radius: 100%;
+  background: var(--gr);
+  opacity: 0.3;
 }
 
 @media only screen and (max-width: 768px) {
   .wrapper {
-    width: 90%;
-    padding: 16px;
-    height: 80vh;
-    min-height: 600px;
-  }
-
-  .Wave {
-    position: absolute;
-    width: 100vw;
-    left: 0;
-    right: 0;
-    top: 85vh;
-  }
-
-  .welcom_logo_title {
-    gap: 16px;
+    width: 100%;
+    height: 100%;
+    background: var(--bg);
+    box-shadow: unset;
+    border-radius: 0;
+    padding: 25px;
+    display: grid;
   }
 
   .form {
-    gap: 20px;
+    padding: 25px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    justify-items: center;
+    gap: 40px;
+    position: absolute;
+    z-index: 1;
+  }
+
+  .welcome {
+    font-size: 16px;
+    line-height: 24px;
+  }
+
+  .vuzname {
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 24px;
+  }
+
+  .errMessage {
+    font-size: 14px;
+    color: var(--red);
+    transform: unset;
+    position: unset;
+    text-align: center;
+    width: 100%;
   }
 }

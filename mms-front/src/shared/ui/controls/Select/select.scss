@@ -1,4 +1,6 @@
-.ant-select {
+.LmsSelect {
+  width: 100%;
+
   .ant-select-selector {
     border-color: var(--stroke) !important;
     border-radius: 10px !important;
@@ -9,17 +11,12 @@
   }
 
   .ant-select-selection-placeholder {
+    line-height: 36px !important;
     font-size: 14px;
   }
 
   .ant-select-selection-item {
     line-height: 36px !important;
     font-size: 14px;
-  }
-
-  .ant-select-clear {
-    display: flex;
-    justify-content: center;
-    align-items: center;
   }
 }

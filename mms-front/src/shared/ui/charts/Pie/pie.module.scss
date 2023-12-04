@@ -1,0 +1,58 @@
+.wrapper {
+  display: grid;
+  grid-gap: 20px;
+}
+
+.total {
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 48px;
+
+  span {
+    font-size: 14px;
+    line-height: 21px;
+    color: var(--gray);
+  }
+}
+
+.pie {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.legends {
+  display: grid;
+  gap: 3px;
+}
+
+.legend_row {
+  display: flex;
+  gap: 7px;
+  font-size: 12px;
+  align-items: center;
+  cursor: pointer;
+}
+
+.legend_row:hover {
+  opacity: 0.7;
+}
+
+.circle {
+  width: 12px;
+  height: 12px;
+  min-width: 12px;
+  min-height: 12px;
+  border-radius: 12px;
+}
+
+@media screen and (max-width: 1200px) and (min-width: 1025px) {
+  .legend_row {
+    p {
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      max-width: 30px;
+    }
+  }
+}

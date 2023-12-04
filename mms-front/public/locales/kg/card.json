@@ -1,0 +1,47 @@
+{
+  "orders": {
+    "come": "Келди",
+    "leave": "Кетти",
+    "rate": "Курс",
+    "academYear": "Окуу жылы",
+    "come_date": "Дата",
+    "semester": "Семестр",
+    "speciality": "Адистиги",
+    "leave_date": "Дата",
+    "group_name": "Тайпа",
+    "order": "Буйрук"
+  },
+  "score": {
+    "total": "жалпы",
+    "semester": "семестр",
+    "Semester": "Семестр",
+    "discipline": "Сабак",
+    "examination": "Текшерүү формасы",
+    "kredits": "ECTS",
+    "ball": "Упайлардын саны",
+    "ekv_num": "Сан. экв.",
+    "ekv_bukv": "Тамгалык система",
+    "mark": "Традиц. система",
+    "course": "-курс",
+    "otl": "мыкты",
+    "hor": "жакшы",
+    "ud": "канаат.",
+    "neud": "канаат. эмес"
+  },
+  "payment": {
+    "rate": "Курс",
+    "AcademYear": "Окуу жылы",
+    "contract": "Контракт",
+    "paid": "Төлөндү",
+    "duty": "Карыз",
+    "speciality": "Акы төлөнүлгөн адистик",
+    "history": "Төлөм тарыхы",
+    "payment": "Төлөм (сом)",
+    "date": "Дата",
+    "orderNum": "ордер №",
+    "paymentType": "Төлөм түрү",
+    "purpose": "Төлөм багыты",
+    "return": "Кайтаруу",
+    "som": "сом"
+  }
+}

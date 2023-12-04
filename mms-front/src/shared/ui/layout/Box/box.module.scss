@@ -1,42 +1,56 @@
 .box {
   background: var(--white);
   box-shadow: var(--box-shadow);
-  border-radius: 10px;
+  border-radius: 6px;
   overflow: hidden;
-  padding: 24px;
-  display: grid;
-  gap: 24px;
-  max-width: 100%;
-  // height: fit-content;
+}
+
+.hovered:hover {
+  box-shadow: 0px 0px 24px rgba(40, 105, 254, 0.2);
 }
 
 .title {
+  padding: 16px 24px;
+  display: flex;
+  justify-content: space-between;
+  width: calc(100%);
+  background: #f8f8fb;
+
   font-weight: 600;
-  font-size: 18px;
-  line-height: 18px;
+  font-size: 16px;
+  line-height: 16px;
 }
 
 .content {
+  padding: 24px;
   display: flex;
-  flex-direction: column;
   gap: 24px;
+  flex-direction: column;
+  width: 100%;
+}
+
+.arrow {
+  cursor: pointer;
+  margin-left: 16px;
 }
 
 @media screen and (max-width: 1024px) {
-  .box {
+  .content {
     padding: 20px;
     gap: 20px;
   }
-  .content {
-    gap: 20px;
+
+  .title {
+    padding: 16px 20px;
   }
 }
 @media screen and (max-width: 768px) {
-  .box {
+  .content {
     padding: 16px;
     gap: 16px;
   }
-  .content {
-    gap: 16px;
+
+  .title {
+    padding: 16px;
   }
 }

@@ -1,1 +1,2 @@
-export { Tabs } from 'antd';
+import Tabs from 'antd/es/tabs';
+export { Tabs };

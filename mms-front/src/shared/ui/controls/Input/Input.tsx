@@ -1,12 +1,11 @@
 import React from 'react';
-import { Input as AntInput } from 'antd';
+import AntInput, { InputProps } from 'antd/es/input';
 
 import { PassInVisibleIcon, PassVisibleIcon } from '~shared/ui/Icons/icons';
 
 import './Input.scss';
-import { InputLabelProps } from './types';
 
-export const Input: React.FC<InputLabelProps> = ({
+export const Input: React.FC<InputProps> = ({
   children,
   className = 'lmsInput',
   type,

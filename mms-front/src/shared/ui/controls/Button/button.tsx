@@ -1,6 +1,6 @@
 import React from 'react';
 import { FC, ReactEventHandler } from 'react';
-import { Button as AntButton } from 'antd';
+import AntButton from 'antd/es/button';
 
 import './button.scss';
 
@@ -14,7 +14,7 @@ export interface ButtonProps {
   icon?: React.ReactNode;
   loading?: boolean;
   shape?: 'default' | 'circle' | 'round';
-  size?: 'middle';
+  size?: 'middle' | 'small' | 'large';
   target?: string;
   type?: 'primary' | 'ghost' | 'dashed' | 'link' | 'text' | 'default';
   onClick?: ReactEventHandler;
@@ -26,7 +26,7 @@ export interface ButtonProps {
 
 export const Button: FC<ButtonProps> = ({
   children,
-  shape = 'default',
+  shape = 'round',
   prefixCls = 'lmsButton',
   ...props
 }) => {

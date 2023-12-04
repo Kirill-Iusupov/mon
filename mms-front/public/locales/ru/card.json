@@ -1,5 +1,63 @@
 {
-    "settings": {
-        "org": "Organization"
-    }
+  "orders": {
+    "come": "Прибыл",
+    "leave": "Убыл",
+    "rate": "Курс",
+    "academYear": "Уч. год",
+    "come_date": "Дата",
+    "semester": "Семестр",
+    "speciality": "Специальность",
+    "leave_date": "Дата",
+    "group_name": "Группа",
+    "order": "Приказ"
+  },
+  "score": {
+    "general": "общий",
+    "total": "итого",
+    "semester": "семестр",
+    "Semester": "Семестр",
+    "discipline": "Дисциплина",
+    "examination": "Форма контроля",
+    "kredits": "ECTS",
+    "ball": "Количество баллов",
+    "ekv_num": "Цифр. эквив.",
+    "ekv_bukv": "Буквен. система",
+    "mark": "Традиц. система",
+    "course": "-курс",
+    "otl": "отлично",
+    "hor": "хорошо",
+    "ud": "удов.",
+    "neud": "неуд."
+  },
+  "payment": {
+    "rate": "Курс",
+    "AcademYear": "Уч. год",
+    "contract": "Контракт",
+    "paid": "Оплатил",
+    "duty": "Долг",
+    "speciality": "Специальность в которую оплатил",
+    "history": "История оплаты",
+    "payment": "Оплата (сом)",
+    "date": "Дата",
+    "orderNum": "№ ордера",
+    "paymentType": "Вид оплаты",
+    "purpose": "Целевое назначание",
+    "return": "Возврат",
+    "som": "сом"
+  },
+  "elective": {
+    "addDiscipline": "Добавить дисциплину",
+    "selected": "Выбранные дисциплины",
+    "semester": "Семестр",
+    "discipline": "Дисциплина",
+    "kafedra": "Кафедра",
+    "teacher": "Преподаватель",
+    "choseDiscipline": "Выбрали дисциплину",
+    "choseTeacher": "Выбрали преподавателя",
+    "status": "Статус дисциплины",
+    "actions": "Действия",
+    "addingDiscipline": "Добавление дисциплины",
+    "academYear": "Учебный год",
+    "teachersChoice": "Выбор преподавателя"
+  }
 }

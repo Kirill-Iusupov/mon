@@ -1,6 +1,7 @@
 import { useMemo } from 'react';
 // import { Controller, useFormContext } from 'react-hook-form';
-import { Input, InputProps } from 'antd';
+import Input from 'antd/es/input';
+import { InputProps } from 'antd/es/input/Input';
 
 // import { CommonTextFieldProps } from '../../types';
 

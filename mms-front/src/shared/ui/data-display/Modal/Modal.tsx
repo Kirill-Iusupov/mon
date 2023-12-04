@@ -1,5 +1,5 @@
 import { FC, useEffect } from 'react';
-import { Modal as AntModal } from 'antd';
+import AntModal from 'antd/es/modal';
 
 import { ModalProps } from './type';
 import './modal.scss';

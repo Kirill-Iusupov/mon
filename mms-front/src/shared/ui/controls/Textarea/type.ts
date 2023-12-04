@@ -4,7 +4,6 @@ export interface TextAreaProps {
   bordered?: boolean;
   className?: any;
   defaultValue?: string;
-  name?: string;
   maxLength?: number;
   showCount?:
     | boolean

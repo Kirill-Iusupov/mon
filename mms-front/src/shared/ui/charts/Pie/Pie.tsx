@@ -1,7 +1,14 @@
-import { Pie as AntPie } from '@ant-design/plots';
-// import { Pie } from '@ant-design/plots';
+// @ts-nocheck
+// import { Pie as AntPie, PieConfig } from '@ant-design/plots';
+import AntPie, { PieConfig } from '@ant-design/plots/es/components/pie';
 
 import { FC } from 'react';
+
+import { Tooltip } from '~shared/ui';
+
+import styles from './pie.module.scss';
+
+export type Datum = Record<string, any>;
 
 type PieChartData = {
   type: string;
@@ -9,39 +16,50 @@ type PieChartData = {
   color: string;
 };
 
-interface PieProps {
-  data?: PieChartData[];
-  angleField?: string;
-  colorField?: string;
+interface PieProps extends PieConfig {
+  data: PieChartData[];
+  discription?: string;
+  // angleField?: string;
+  // colorField?: string;
 }
 
-export const Pie: FC<PieProps> = ({ data }) => {
-  if (!data) {
+export const Pie: FC<PieProps> = ({
+  data,
+  angleField = 'value',
+  colorField = 'type',
+  height = 130,
+  width = 130,
+  discription = '',
+}) => {
+  const total = data.reduce((sum, current) => sum + current.value, 0);
+
+  if (!data || data.length === 0) {
     return null;
   }
 
   const config = {
-    appendPadding: 10,
+    appendPadding: 0,
     data: data.filter((x) => x.value > 0),
-    angleField: 'value',
-    colorField: 'type',
-    color: function ({ type }: any) {
-      return data.filter((x) => x.type === type)[0].color;
+    angleField,
+    colorField,
+    color: function (d: Datum) {
+      return data.filter((x) => x.type === d.type)[0]?.color;
     },
     radius: 1,
-    innerRadius: 0.6,
-    height: 150,
-    width: 260,
+    innerRadius: 0.5,
+    height,
+    width,
     label: {
       type: 'inner',
       offset: '-50%',
       content: '{value}',
       style: {
         textAlign: 'center',
-        fontSize: 9,
+        fontSize: 11,
       },
     },
-    autoFit: false,
+    autoFit: true,
+
     pieStyle: {
       lineWidth: 0,
       shadowColor: 'rgba(0, 0, 0, 0.16)',
@@ -50,22 +68,43 @@ export const Pie: FC<PieProps> = ({ data }) => {
       shadowOffsetY: 0,
       cursor: 'pointer',
     },
-    statistic: {
-      title: false as const,
-      content: {
-        style: {
-          whiteSpace: 'wrap',
-          overflow: 'auto',
-          zIndex: '1',
-          lineHeight: '18px',
-          // fontSize: 18,
-        },
-        formatter: function formatter() {
-          return `total\n134`;
-        },
-      },
-    },
+    statistic: false,
+    legend: false,
   };
 
-  return <AntPie {...config} />;
+  return (
+    <div className={styles.wrapper}>
+      <h1 className={styles.total}>
+        {total} <span>{discription}</span>
+      </h1>
+      <div className={styles.pie}>
+        <AntPie {...config} className="lmsPie" />
+        <div className={styles.legends}>
+          {data
+            .filter((a) => a.value > 0)
+            ?.map((item) => {
+              return (
+                <Tooltip
+                  zIndex={2}
+                  key={item?.type}
+                  color={item?.color}
+                  title={
+                    <div className="flex gap-4 text-md">
+                      <p>{item?.type}: </p>
+                      <strong>{item?.value}</strong>
+                    </div>
+                  }
+                >
+                  <div className={styles.legend_row}>
+                    <div className={styles.circle} style={{ background: item?.color }} />
+                    <p>{item?.type}: </p>
+                    <strong>{item?.value}</strong>
+                  </div>
+                </Tooltip>
+              );
+            })}
+        </div>
+      </div>
+    </div>
+  );
 };

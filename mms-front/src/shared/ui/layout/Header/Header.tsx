@@ -3,6 +3,7 @@ import classNames from 'classnames';
 
 import { Burger } from '~entities/burger';
 import useScrollListener from '~shared/lib/hooks/useScrollListener';
+import { SetLocaleSimpleView } from '~features';
 
 import styles from './header.module.scss';
 
@@ -22,6 +23,7 @@ export const Header: FC<HeaderProps> = ({ children }) => {
     <div className={headerClass}>
       <Burger />
       <div className={styles.title}>{children}</div>
+      <SetLocaleSimpleView />
     </div>
   );
 };

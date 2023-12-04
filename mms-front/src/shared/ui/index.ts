@@ -4,6 +4,5 @@ export * from './layout';
 export * from './form';
 export * from './feedback';
 export * from './utils';
-export * from './logo';
 export * from './Icons';
 export * from './charts';

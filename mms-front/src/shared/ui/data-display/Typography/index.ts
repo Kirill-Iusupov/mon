@@ -1,1 +1,2 @@
-export { Typography } from 'antd';
+import Typography from 'antd/es/typography';
+export { Typography };

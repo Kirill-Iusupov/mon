@@ -1,0 +1,13 @@
+ 
+.lang {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  font-weight: 500;
+  line-height: 24px;
+  font-size: 14px;
+
+  div {
+    cursor: pointer;
+  }
+}

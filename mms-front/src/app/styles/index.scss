@@ -1,18 +1,17 @@
 :root {
-  --primary: #3f139d;
+  --primary: #4c6fff;
   --black: #1c1917;
-  --gray: #727d97;
   --white: #fff;
-  --white700: rgba(255, 255, 255, 0.7);
   --green: #05cd56;
   --orange: #ff7800;
   --yellow: #ffd60a;
   --red: #ff4d4f;
+  --gray: #64748b;
 
   --bg: #e9edff;
   --content: #fff;
   --stroke: #e9edff;
-  --gr: #3f139d;
+  --gr: linear-gradient(205.17deg, #2b8b3b 10.93%, #00ff11 116.08%);
   --grv: linear-gradient(225deg, #bb65ff 0%, #4c6fff 100%);
   --box-shadow: 0px 0px 20px rgba(40, 105, 254, 0.07);
 }
@@ -166,9 +165,6 @@ select {
 
 //////////Ant Typography/////////////
 
-.ant-typography-secondary {
-  color: var(--gray) !important;
-}
 .ant-typography-success {
   color: var(--primary) !important;
 }
@@ -181,6 +177,10 @@ select {
   color: var(--red) !important;
 }
 
+.ant-typography-secondary {
+  color: var(--gray) !important;
+}
+
 .ant-typography {
   margin: 0 !important;
 }
@@ -189,18 +189,31 @@ select {
   display: none;
 }
 
-/////////////ant Notification
-///
-/// /////////ant Notification
+// .ant-table-row:hover {
+//   background: unset !important;
+//   background-color: unset !important;
+// }
 
-.notification-type-success {
-  background-color: var(--green) !important;
+.ant-table-row:hover td {
+  background: #fff !important;
 }
 
-.notification-type-error {
-  background-color: var(--red) !important;
+.ant-table-content {
+  padding-bottom: 24px;
 }
 
-.notification-type-warning {
-  background-color: var(--orange) !important;
+table th {
+  padding: 8px 20px !important;
+}
+table td {
+  padding: 8px 20px !important;
+}
+
+@media screen and (max-width: 768px) {
+  table th {
+    padding: 8px 16px !important;
+  }
+  table td {
+    padding: 8px 16px !important;
+  }
 }

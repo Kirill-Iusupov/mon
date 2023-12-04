@@ -1,7 +1,5 @@
 import { FC, ReactNode } from 'react';
 
-import pageLayoutBg from '~shared/assets/pageLayoutBg.png';
-
 import styles from './pageLayout.module.scss';
 
 interface PageLayoutProps {
@@ -16,9 +14,8 @@ export const PageLayout: FC<PageLayoutProps> = ({ navigation, header, children }
       {navigation}
       <div>
         {header}
-        <div className={styles.content}>{children}</div>
+        <div className={styles.pageChildren}>{children}</div>
       </div>
-      <img className={styles.pageLayoutBg} src={pageLayoutBg} alt="wave" />
     </div>
   );
 };

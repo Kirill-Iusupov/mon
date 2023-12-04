@@ -1,5 +1,16 @@
 {
-    "settings": {
-        "org": "Organization"
-    }
+  "lastNews": "Последняя новость",
+  "all": "Все новости",
+  "notification": "Объявление",
+  "newNotification": "Новое объявление",
+  "access": "Доступ к объявлении",
+  "faculty": "Факультет",
+  "options": {
+    "all": "Все",
+    "teacher": "Преподаватели",
+    "student": "Студенты"
+  },
+  "attachFile": "Прикрепить файл",
+  "deleteSureText": "Вы действительно хотите удалить текующую запись?",
+  "yes": "Да, хочу"
 }

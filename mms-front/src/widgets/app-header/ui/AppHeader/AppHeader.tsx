@@ -12,9 +12,7 @@ export const AppHeader: FC<AppHeaderProps> = () => {
   const { t } = useTranslation();
 
   const pageKey =
-    Object.keys(RoutesUrls)[
-      Object.values(RoutesUrls).indexOf(location.pathname.split('/').slice(0, 3).join('/') as any)
-    ];
+    Object.keys(RoutesUrls)[Object.values(RoutesUrls).indexOf(location.pathname as any)];
 
   // /* eslint-disable no-console */
   // console.warn(pageKey);

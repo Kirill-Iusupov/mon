@@ -1,20 +1,19 @@
-import { notification } from 'antd';
-import type { ArgsProps } from 'antd/es/notification/interface';
-interface INotification extends ArgsProps {
-  // status: 'success' | 'error' | 'warning';
-}
+import notification from 'antd/es/notification';
+import type { NotificationPlacement } from 'antd/es/notification/interface';
 
 export const useNotification = () => {
   const [api, contextHolder] = notification.useNotification();
 
-  const openNotification = ({ type, message, ...props }: INotification) => {
+  const openNotification = (
+    message: string = '',
+    description: string = '',
+    placement: NotificationPlacement = 'top'
+  ) => {
     api.open({
-      ...props,
-      type,
       message,
-      placement: props?.placement || 'topRight',
-
-      duration: props?.duration || 3,
+      description,
+      className: 'custom-class',
+      placement,
     });
   };
 

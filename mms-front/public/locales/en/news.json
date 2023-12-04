@@ -1,0 +1,18 @@
+{
+    "lastNews": "Last news",
+    "all": "All news",
+    "notification": "Notification",
+    "newNotification": "New notification",
+    "access": "Access to the notification",
+    "faculty": "Faculty",
+    "options": {
+      "all": "All",
+      "teacher": "Teachers",
+      "student": "Students"
+    },
+    "attachFile": "Attach a file",
+    "deleteSureText": "Do you really want to delete the current record?",
+    "yes": "Yes, I want to",
+    "no": "Cancel"
+  }
+  

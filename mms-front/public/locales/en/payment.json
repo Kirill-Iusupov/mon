@@ -1,0 +1,8 @@
+{
+  "qr": {
+    "saveAsImage": "Save QR CODE as an image",
+    "cipherWillChange": "The payment cipher changes every year and in case of transfer to another group",
+    "cipherDifferent": "The payment cipher is different for each service",
+    "canPlayWith": "You can pay with the MBank mobile app"
+  }
+}

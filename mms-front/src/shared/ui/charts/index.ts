@@ -1,2 +1,2 @@
 export { Pie } from './Pie';
-export { TimerChart } from './TimerChart';
+export { Column } from './Column';

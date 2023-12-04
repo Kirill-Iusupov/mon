@@ -4,11 +4,7 @@ import { i18nInit } from '~shared/lib/i18n/i18n';
 
 import { AppProps } from '../types';
 
-i18nInit(
-  ['cm', 'auth', 'news', 'profile', 'plan', 'payment', 'card', 'vuz', 'allInfo'],
-  'ru',
-  'cm'
-);
+i18nInit(['cm', 'auth', 'news', 'profile', 'plan', 'payment', 'card'], 'ru', 'cm');
 
 export const withLocalization = (component: Component) => (props: AppProps) => {
   // const intlProviderProps = useLocaleProvider();

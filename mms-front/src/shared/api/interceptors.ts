@@ -1,4 +1,5 @@
 import { Cookies } from '~shared/lib/utils';
+import { LocalStorageCache } from '~shared/lib/cache';
 
 import { ApiError, ApiRequestConfig, ApiResponse } from './types';
 
@@ -15,11 +16,12 @@ export const errorHandler = (err: ApiError) => {
       secure: window.location.protocol === 'https:',
     };
 
+    LocalStorageCache.flush();
     cookie.remove('_auth_state', options);
     cookie.remove('_auth_storage', options);
     cookie.remove('_auth_type', options);
     cookie.remove('_auth', options);
-    window.location.replace('/elumutu/login');
+    window.location.replace('/login');
   }
 
   return Promise.reject(err);

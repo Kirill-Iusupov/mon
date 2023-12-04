@@ -1,0 +1,88 @@
+{
+  "locale": {
+    "language": "Interface language",
+    "russian": "Русский",
+    "kyrgyz": "Кыргызча",
+    "english": "English"
+  },
+  "actions": {
+    "save": "Save",
+    "select": "Select",
+    "upload": "Upload",
+    "update": "Update",
+    "delete": "Delete",
+    "drag": "Click or drag the file to this area to upload"
+  },
+  "links": {
+    "vm": "Visit",
+    "test": "Test",
+    "anketa": "Survey",
+    "ved": "Electronic statement",
+    "report": "Report",
+    "library": "Library",
+    "rrnk": "RRNK"
+  },
+  "role": {
+    "teacher": "Teacher",
+    "student": "Student"
+  },
+  "bottomLinks": {
+    "settings": "Settings",
+    "logout": "Logout"
+  },
+  "routes": {
+    "home": "Home",
+    "businessTrips": "Business Trips",
+    "news": "News",
+    "score": "Score",
+    "order": "Order",
+    "payment": "Payment",
+    "plan": "Plan",
+    "qr": "Qr"
+  },
+  "pages": {
+    "home": "Home",
+    "news": "News",
+    "score": "Score",
+    "order": "Order",
+    "payment": "Payment",
+    "plan": "Plan",
+    "qr": "Qr",
+    "login": "Login",
+    "logout": "Logout",
+    "settings": "Settings"
+  },
+  "shared": {
+    "academYear": "academic year",
+    "AcademYear": "Academic year",
+    "faculty": "Faculty",
+    "discipline": "Discipline",
+    "Krdt": "Credit",
+    "examination": "Examination",
+    "p20": "Group",
+    "Vedomost": "El.stm.",
+    "n_lk": "Lec.",
+    "n_pr": "Prac.",
+    "prov_reyt": "Accept. credit",
+    "irs": "Check total score",
+    "manual_kp": "Course paper",
+    "rukov_pr_pr": "Work practice",
+    "groupKonsult": "Consulting",
+    "prochie": "Count visit",
+    "rec_ruk_kontrrab": "Org. educ. proc.",
+    "summ": "Sum",
+    "service": "Service"
+  },
+  "modal":{
+    "add":"Add",
+    "cancel": "Cancel",
+    "jobTitle":"Job Title",
+    "structure":"Structure"
+  },
+  "jobs":{
+    "front": "Frontend",
+    "back": "Backend",
+    "design": "Designer",
+    "engeneer": "Software Engeneer"
+  }
+}

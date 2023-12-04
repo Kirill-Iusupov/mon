@@ -1,0 +1,14 @@
+{
+  "title": "Profile",
+  "fio": "Full name",
+  "pol": "Gender",
+  "bdate": "Date of birth",
+  "nationality": "Nationality",
+  "citizenship": "Citizenship",
+  "INN": "PIN",
+  "phone_mobile": "Phone",
+  "education": "Education",
+  "kafedra": "Department",
+  "faculty": "Faculty",
+  "speciality": "Specialty"
+  }

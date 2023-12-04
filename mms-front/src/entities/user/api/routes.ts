@@ -1,3 +1,3 @@
 export const routes = {
-  getUserData: () => `/user/check`,
+  getUserData: () => `/auth/check`,
 };

@@ -1,2 +1,2 @@
+export * from './docIcons';
 export * from './icons';
-export * from './files';

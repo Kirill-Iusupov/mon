@@ -4,14 +4,14 @@ import { Outlet } from 'react-router-dom';
 import { AppHeader } from '~widgets/app-header';
 import { Navigation } from '~widgets/navigation';
 
-import { PageLayout } from '~shared/ui';
+import { PageLayout, Spinner } from '~shared/ui';
 
 export interface BaseLayoutProps extends Partial<ComponentWithChildren> {}
 
 export const BaseLayout: FC<BaseLayoutProps> = ({ children }) => {
   return (
     <PageLayout navigation={<Navigation />} header={<AppHeader />}>
-      <Suspense fallback="loading">
+      <Suspense fallback={<Spinner />}>
         {children}
         <Outlet />
       </Suspense>

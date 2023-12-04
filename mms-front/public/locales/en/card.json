@@ -1,0 +1,48 @@
+{
+  "orders": {
+    "come": "Arrived",
+    "leave": "Gone",
+    "rate": "Course",
+    "academYear": "Academic year",
+    "come_date": "Date",
+    "semester": "Semester",
+    "speciality": "Specialty",
+    "leave_date": "Date",
+    "group_name": "Group",
+    "order": "Order"
+  },
+  "score": {
+    "total": "total",
+    "semester": "semester",
+    "Semester": "Semester",
+    "discipline": "Discipline",
+    "examination": "Form of control",
+    "kredits": "ECTS",
+    "ball": "Number of points",
+    "ekv_num": "Digital equiv.",
+    "ekv_bukv": "Literal system",
+    "mark": "Tradition. the system",
+    "leave_date": "Date of completion",
+    "course": "-course",
+    "otl": "excellent",
+    "hor": "good",
+    "ud": "acceptable",
+    "neud": "failure"
+  },
+  "payment": {
+    "rate": "Course",
+    "AcademYear": "Academic year",
+    "contract": "Contract",
+    "paid": "Paid",
+    "duty": "Debt",
+    "speciality": "Specialty paid for",
+    "history": "Payment history",
+    "payment": "Payment (com)",
+    "date": "Date",
+    "orderNum": "Order No.",
+    "paymentType": "Type of payment",
+    "purpose": "Purpose",
+    "return": "Return",
+    "som": "som"
+  }
+}

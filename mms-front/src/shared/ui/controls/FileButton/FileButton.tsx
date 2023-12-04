@@ -19,8 +19,8 @@ interface FileButtonProps {
 
 export const FileButton: FC<FileButtonProps> = ({
   title = 'file',
-  href = '/',
-  target,
+  href,
+  target = '_blank',
   rel = 'noreferrer',
   key,
   onClick,

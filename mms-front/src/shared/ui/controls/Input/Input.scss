@@ -33,25 +33,3 @@
   border-color: var(--primary) !important;
   border-inline-end-width: 2px !important;
 }
-
-.ant-input-status-error {
-  border: 1px solid var(--red) !important;
-}
-
-.ant-input-status-error:focus {
-  border-color: var(--red) !important;
-}
-.ant-input-status-error:hover {
-  border-color: var(--red) !important;
-}
-
-.ant-input-status-warning {
-  border: 1px solid var(--orange) !important;
-}
-
-.ant-input-status-warning:focus {
-  border-color: var(--orange) !important;
-}
-.ant-input-status-warning:hover {
-  border-color: var(--orange) !important;
-}

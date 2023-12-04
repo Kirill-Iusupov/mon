@@ -1,1 +1,2 @@
-export { Tooltip } from 'antd';
+import Tooltip from 'antd/es/tooltip';
+export { Tooltip };

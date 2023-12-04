@@ -1,7 +1,7 @@
-import { FC, ReactNode, useEffect, useState } from 'react';
+import { FC, ReactNode } from 'react';
 import classNames from 'classnames';
 
-import { Avatar } from '~shared/ui';
+import { Avatar, useWindowInnerWidth } from '~shared/ui';
 
 import styles from './siderUser.module.scss';
 
@@ -9,27 +9,17 @@ export interface SiderUserProps {
   photo?: string | null;
   fio?: string;
   role?: string | null;
-  collapsed?: boolean | undefined;
+  collapsed?: boolean;
   onError?: ReactNode;
 }
 
 export const SiderUser: FC<SiderUserProps> = ({ photo, fio, role, collapsed, onError }) => {
-  const [open, setOpen] = useState<boolean | undefined>(false);
-  const wrapperClass = classNames(styles.wrapper, open ? styles.collapsed : '');
-
-  useEffect(() => {
-    if (!collapsed) {
-      setTimeout(() => {
-        setOpen(false);
-      }, 300);
-    } else {
-      setOpen(collapsed);
-    }
-  }, [collapsed]);
+  const windowWidth = useWindowInnerWidth();
+  const wrapperClass = classNames(styles.wrapper, collapsed ? styles.collapsed : '');
 
   return (
     <div className={wrapperClass}>
-      <Avatar src={photo ? photo : null} size={56}>
+      <Avatar src={photo} size={collapsed && windowWidth > 768 ? 30 : 60}>
         {onError}
       </Avatar>
       <div className={styles.fioRole}>

@@ -1,0 +1,14 @@
+{
+  "title": "Профиль",
+  "fio": "Аты-жөнү",
+  "pol": "Жынысы",
+  "bdate": "Туулган жылы",
+  "nationality": "Улуту",
+  "citizenship": "Жарандыгы",
+  "INN": "ИНН",
+  "phone_mobile": "Телефон",
+  "education": "Билими",
+  "kafedra": "Бөлүмү",
+  "faculty": "Факультет",
+  "speciality": "Адистиги"
+}

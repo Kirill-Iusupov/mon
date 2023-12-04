@@ -1,1 +1,0 @@
-export type Photo = string;

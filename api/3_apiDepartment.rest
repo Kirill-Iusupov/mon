@@ -1,0 +1,35 @@
+###
+# department list
+GET http://localhost:5000/mms/api/department HTTP/1.1
+content-type: application/json
+
+###
+# department insert
+PUT http://localhost:5000/mms/api/department HTTP/1.1
+content-type: application/json
+
+{
+"departmentRu":"departmentRu", 
+"departmentKg":"departmentKg"
+}
+
+###
+# department update
+POST http://localhost:5000/mms/api/department HTTP/1.1
+content-type: application/json
+
+{
+"id":13,
+"departmentRu":"departmentRu", 
+"departmentKg":"departmentKg"
+}
+###
+# department delete
+DELETE http://localhost:5000/mms/api/department HTTP/1.1
+content-type: application/json
+
+{
+"id":14
+}
+
+ 

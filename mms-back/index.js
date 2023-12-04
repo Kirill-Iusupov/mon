@@ -54,8 +54,8 @@ if (Config.FAKE_AUTH_MODE === "true") {
 ///////////////////////////
 app.use("/mms/api/user", require("./user"));
 app.use("/mms/api/personal", require("./personal"));
+app.use("/mms/api/department", require("./department"));
 app.use("/mms/api/schedule", require("./schedule"));
-app.use("/mms/api/structure", require("./structure"));
 app.use("/mms/api/business", require("./business"));
 app.use("/mms/api/report", require("./report"));
 // app.use("/mms/api/challenger", require("./challenger"));

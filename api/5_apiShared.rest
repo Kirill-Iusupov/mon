@@ -39,3 +39,15 @@ content-type: application/json
 GET http://localhost:5000/mms/api/shared/country?lang=kg HTTP/1.1
 content-type: application/json
  
+
+###
+# region list
+GET http://localhost:5000/mms/api/shared/region?lang=kg HTTP/1.1
+content-type: application/json
+ 
+
+###
+# district list
+GET http://localhost:5000/mms/api/shared/district?lang=kg HTTP/1.1
+content-type: application/json
+ 

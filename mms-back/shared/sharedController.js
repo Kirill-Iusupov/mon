@@ -76,6 +76,26 @@ class SharedController {
     }
     return send(res, false, req.t("error"), true, 400);
   }
+  async region(req, res) {
+    const resolvedLanguage = req.i18n.resolvedLanguage;
+    const langId = await LangService.getLangId(resolvedLanguage);
+
+    const data = await SharedService.region(langId);
+    if (data) {
+      return send(res, data, req.t("success"), false, 200);
+    }
+    return send(res, false, req.t("error"), true, 400);
+  }
+  async district(req, res) {
+    const resolvedLanguage = req.i18n.resolvedLanguage;
+    const langId = await LangService.getLangId(resolvedLanguage);
+
+    const data = await SharedService.district(langId);
+    if (data) {
+      return send(res, data, req.t("success"), false, 200);
+    }
+    return send(res, false, req.t("error"), true, 400);
+  }
 }
 
 module.exports = new SharedController();

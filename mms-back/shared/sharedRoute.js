@@ -11,5 +11,7 @@ router.get("/post", SharedController.post);
 router.get("/businessType", SharedController.businessType);
 router.get("/businessTrip", SharedController.businessTrip);
 router.get("/country", SharedController.country);
+router.get("/region", SharedController.region);
+router.get("/district", SharedController.district);
 
 module.exports = router;

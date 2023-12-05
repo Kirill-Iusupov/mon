@@ -71,6 +71,26 @@ async function country(lang) {
     return false;
   }
 }
+async function region(lang) {
+  try {
+    const { rows } = await db.query("SELECT * FROM fn_region_sel($1)", [lang]);
+    return rows;
+  } catch (err) {
+    console.log("error region", err.message);
+    return false;
+  }
+}
+async function district(lang) {
+  try {
+    const { rows } = await db.query("SELECT * FROM fn_district_sel($1)", [
+      lang,
+    ]);
+    return rows;
+  } catch (err) {
+    console.log("error district", err.message);
+    return false;
+  }
+}
 
 module.exports = {
   role,
@@ -80,4 +100,6 @@ module.exports = {
   businessType,
   businessTrip,
   country,
+  region,
+  district,
 };

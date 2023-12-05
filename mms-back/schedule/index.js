@@ -1,3 +1,3 @@
-const challengerRoute = require('./challengerRoute');
+const scheduleRoute = require('./scheduleRoute');
 
-module.exports = challengerRoute;
+module.exports = scheduleRoute;

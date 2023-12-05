@@ -6,11 +6,11 @@ async function getLangId(resolvedLanguage) {
                 id = 1;
                 break;
             case 'kg':
-                id = 3;
-                break;
-            case 'en':
                 id = 2;
                 break;
+            // case 'en':
+            //     id = 3;
+            //     break;
             default:
                 id = 1;
                 break;

@@ -1,0 +1,41 @@
+###
+# role list
+GET http://localhost:5000/mms/api/shared/role?lang=kg HTTP/1.1
+content-type: application/json
+ 
+
+###
+# department list
+GET http://localhost:5000/mms/api/shared/department?lang=kg HTTP/1.1
+content-type: application/json
+ 
+
+###
+# employee list
+GET http://localhost:5000/mms/api/shared/employee?lang=kg HTTP/1.1
+content-type: application/json
+ 
+
+###
+# post list
+GET http://localhost:5000/mms/api/shared/post?lang=kg HTTP/1.1
+content-type: application/json
+ 
+
+###
+# businessType list
+GET http://localhost:5000/mms/api/shared/businessType?lang=kg HTTP/1.1
+content-type: application/json
+ 
+
+###
+# businessTrip list
+GET http://localhost:5000/mms/api/shared/businessTrip?lang=kg HTTP/1.1
+content-type: application/json
+ 
+
+###
+# country list
+GET http://localhost:5000/mms/api/shared/country?lang=kg HTTP/1.1
+content-type: application/json
+ 

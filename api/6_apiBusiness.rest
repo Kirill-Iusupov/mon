@@ -1,0 +1,57 @@
+###
+# business list
+GET http://localhost:5000/mms/api/business HTTP/1.1
+content-type: application/json
+
+###
+# business insert
+PUT http://localhost:5000/mms/api/business HTTP/1.1
+content-type: application/json
+
+{
+"businessRu": "businessRu",
+"businessKg": "businessKg",
+"businessTypeId": 0,
+"businessTripId": 0,
+"employeeId": 0,
+"countryId": 1,
+"regionId": 9,
+"begDate": "2023-01-01",
+"endDate": "2023-01-01",
+"departmentId": 2,
+"order": "order #",
+"orderFile": "filePath",
+"comment": "comment"
+}
+
+###
+# business update
+POST http://localhost:5000/mms/api/business HTTP/1.1
+content-type: application/json
+
+{
+"id":24,
+"businessRu": "businessRu",
+"businessKg": "businessKg",
+"businessTypeId": 0,
+"businessTripId": 0,
+"employeeId": 0,
+"countryId": 1,
+"regionId": 9,
+"begDate": "2023-01-01",
+"endDate": "2023-01-01",
+"departmentId": 2,
+"order": "order #",
+"orderFile": "filePath",
+"comment": "comment"
+}
+###
+# business delete
+DELETE http://localhost:5000/mms/api/business HTTP/1.1
+content-type: application/json
+
+{
+"id":24
+}
+
+ 

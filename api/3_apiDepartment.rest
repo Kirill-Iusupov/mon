@@ -19,8 +19,8 @@ POST http://localhost:5000/mms/api/department HTTP/1.1
 content-type: application/json
 
 {
-"id":13,
-"departmentRu":"departmentRu", 
+"id":24,
+"departmentRu":"departmentRu2", 
 "departmentKg":"departmentKg"
 }
 ###
@@ -29,7 +29,7 @@ DELETE http://localhost:5000/mms/api/department HTTP/1.1
 content-type: application/json
 
 {
-"id":14
+"id":24
 }
 
  

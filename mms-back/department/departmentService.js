@@ -1,11 +1,10 @@
 const db = require("../utils/db");
 
-async function list(lang) {
+async function list() {
   try {
     const { rowCount, rows } = await db.query(
-      // "select * from public.fn_department_grid_sel($1);",
-      "select * from public.fn_department_sel($1);",
-      [lang]
+      "select * from public.fn_department_grid();",
+      []
     );
     if (rowCount) return rows;
     return false;

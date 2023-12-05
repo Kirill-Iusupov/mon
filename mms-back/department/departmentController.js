@@ -10,12 +10,12 @@ const UserService = require("../services/UserService");
 
 class DepartmentController {
   async list(req, res) {
-    const resolvedLanguage = req.i18n.resolvedLanguage;
-    const langId = await LangService.getLangId(resolvedLanguage);
+    // const resolvedLanguage = req.i18n.resolvedLanguage;
+    // const langId = await LangService.getLangId(resolvedLanguage);
     // const cookie = req.cookies[Config.COOKIE_NAME];
     //const cookie = req.headers["authorization"];
     // const { id: isUser } = await UserService.getUser(cookie);
-    const data = await DepartmentService.list(langId);
+    const data = await DepartmentService.list();
     if (data) {
       return send(res, data, req.t("success"), false, 200);
     }
@@ -69,7 +69,7 @@ class DepartmentController {
     // const cookie = req.cookies[Config.COOKIE_NAME];
     //const cookie = req.headers["authorization"];
     // const { id: isUser } = await UserService.getUser(cookie);
-    const iud = 0;
+    const iud = 1;
     const data = await DepartmentService.departmentIUD(
       iud,
       id,
@@ -99,7 +99,7 @@ class DepartmentController {
     // const cookie = req.cookies[Config.COOKIE_NAME];
     //const cookie = req.headers["authorization"];
     // const { id: isUser } = await UserService.getUser(cookie);
-    const iud = 0,
+    const iud = 2,
       departmentRu = "",
       departmentKg = "";
     const data = await DepartmentService.departmentIUD(

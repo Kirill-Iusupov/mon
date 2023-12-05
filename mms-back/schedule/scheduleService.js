@@ -13,11 +13,11 @@ async function list(lang) {
     return false;
   }
 }
-async function scheduleIUD(iud, id, departmentId, empId, postId) {
+async function scheduleIUD(iud, id, departmentId, employeeId, postId) {
   try {
     const { rowCount, rows } = await db.query(
       "select * from public.fn_department_employee_grid_iud($1,$2,$3,$4,$5);",
-      [iud, id, departmentId, empId, postId]
+      [iud, id, departmentId, employeeId, postId]
     );
     if (rowCount) return rows[0];
     return false;

@@ -33,7 +33,7 @@ class ScheduleController {
       );
     }
 
-    const { departmentId, empId, postId } = req.body;
+    const { departmentId, employeeId, postId } = req.body;
 
     // const cookie = req.cookies[Config.COOKIE_NAME];
     //const cookie = req.headers["authorization"];
@@ -44,7 +44,7 @@ class ScheduleController {
       iud,
       id,
       departmentId,
-      empId,
+      employeeId,
       postId
     );
     if (data) {
@@ -65,7 +65,7 @@ class ScheduleController {
       );
     }
 
-    const { id, departmentId, empId, postId } = req.body;
+    const { id, departmentId, employeeId, postId } = req.body;
 
     // const cookie = req.cookies[Config.COOKIE_NAME];
     //const cookie = req.headers["authorization"];
@@ -75,7 +75,7 @@ class ScheduleController {
       iud,
       id,
       departmentId,
-      empId,
+      employeeId,
       postId
     );
     if (data) {
@@ -103,13 +103,13 @@ class ScheduleController {
     // const { id: isUser } = await UserService.getUser(cookie);
     const iud = 2,
       departmentId = 0,
-      empId = 0,
+      employeeId = 0,
       postId = 0;
     const data = await ScheduleService.scheduleIUD(
       iud,
       id,
       departmentId,
-      empId,
+      employeeId,
       postId
     );
     if (data) {

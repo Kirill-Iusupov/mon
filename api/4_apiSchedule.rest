@@ -10,7 +10,7 @@ content-type: application/json
 
 {
 "departmentId":0, 
-"empId":0, 
+"employeeId":0, 
 "postId":0 
 }
 
@@ -22,7 +22,7 @@ content-type: application/json
 {
 "id":24,
 "departmentId":0, 
-"empId":0, 
+"employeeId":0, 
 "postId":0 
 }
 ###

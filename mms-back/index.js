@@ -58,6 +58,7 @@ app.use("/mms/api/department", require("./department"));
 app.use("/mms/api/schedule", require("./schedule"));
 app.use("/mms/api/business", require("./business"));
 app.use("/mms/api/report", require("./report"));
+app.use("/mms/api/country", require("./country"));
 // app.use("/mms/api/challenger", require("./challenger"));
 // app.use("/mms/api/doc", require("./challengerDoc"));
 // app.use("/mms/api/info", require("./challengerInfo"));

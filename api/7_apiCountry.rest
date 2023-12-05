@@ -1,0 +1,35 @@
+###
+# country list
+GET http://localhost:5000/mms/api/country HTTP/1.1
+content-type: application/json
+
+###
+# country insert
+PUT http://localhost:5000/mms/api/country HTTP/1.1
+content-type: application/json
+
+{
+"countryRu": "countryRu",
+"countryKg": "countryKg"
+}
+
+###
+# country update
+POST http://localhost:5000/mms/api/country HTTP/1.1
+content-type: application/json
+
+{
+"id":6,
+"countryRu": "countryRu2",
+"countryKg": "countryKg2"
+}
+###
+# country delete
+DELETE http://localhost:5000/mms/api/country HTTP/1.1
+content-type: application/json
+
+{
+"id":6
+}
+
+ 

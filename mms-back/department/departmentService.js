@@ -2,12 +2,11 @@ const db = require("../utils/db");
 
 async function list() {
   try {
-    const { rowCount, rows } = await db.query(
+    const { rows } = await db.query(
       "select * from public.fn_department_grid();",
       []
     );
-    if (rowCount) return rows;
-    return false;
+    return rows;
   } catch (err) {
     console.log("error department list", err.message);
     return false;

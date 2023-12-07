@@ -1,10 +1,10 @@
-import axios from 'axios';
+import { ApiResponseData, api } from '~shared/api';
 
 export const getPersonal = async () => {
   let response;
 
   try {
-    response = await axios.get('http://localhost:5000/mms/api/personal');
+    response = await api.get('/personal');
   } catch (error: any) {
     response = error?.response?.data;
   }

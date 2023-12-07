@@ -39,13 +39,14 @@ class UserController {
         tokenBearer
       );
 
-      res.cookie(Config.COOKIE_NAME, tokenBearer, {
-        // maxAge: Config.MAX_AGE,
-        expiresIn: exp,
-        httpOnly: true,
-        Path: Config.COOKIE_PATH,
-        SameSite: "None",
-      });
+      // res.cookie(Config.COOKIE_NAME, tokenBearer, {
+      //   // maxAge: Config.MAX_AGE,
+      //   expiresIn: exp,
+      //   httpOnly: true,
+      //   Path: Config.COOKIE_PATH,
+      //   SameSite: "None",
+      //   // SameSite: "lax",
+      // });
 
       if (user && logged) {
         // return send(res, { id, is_staff, token: logged }, req.t('success'), false, 200);
@@ -59,9 +60,9 @@ class UserController {
               p: user.patronymic,
               exp,
             },
-            token: "token",
-            tokenType: "cookie",
-            // tokenType: "Bearer",
+            token: token,
+            // tokenType: "cookie",
+            tokenType: "Bearer",
             // expiresIn: parseInt(10) * 60, // minutes
             expiresIn: parseInt(Config.JWT_EXPIRE_HOURS) * 60, // minutes
           },
@@ -75,17 +76,20 @@ class UserController {
   }
 
   async check(req, res) {
-    const token = req.cookies[Config.COOKIE_NAME];
+    const token = req.headers["authorization"];
+    // const token = req.cookies[Config.COOKIE_NAME];
     if (!token) {
-      res.cookie(Config.COOKIE_NAME, "tokenWillBeDeleted", {
-        maxAge: 0,
-        httpOnly: true,
-        Path: Config.COOKIE_PATH,
-        SameSite: "None",
-      });
+      // res.cookie(Config.COOKIE_NAME, "tokenWillBeDeleted", {
+      //   maxAge: 0,
+      //   httpOnly: true,
+      //   Path: Config.COOKIE_PATH,
+      //   SameSite: "None",
+      //   // SameSite: "lax",
+      // });
       return send(res, false, "noCookie", true, 401);
     }
     const userData = TokenService.getTokenData(token);
+    const rawToken = String(token).split(" ")[1];
 
     // console.log({ userData })
     if (userData && userData.exp > new Date())
@@ -101,31 +105,34 @@ class UserController {
             p: userData.p,
             exp: userData.exp,
           },
-          token: "token",
-          tokenType: "cookie",
+          token: rawToken,
+          // tokenType: "cookie",
+          tokenType: "Bearer",
           expiresIn: parseInt((userData.exp - Date.now()) / 60000), //minutes
         },
         "success",
         false,
         200
       );
-    res.cookie(Config.COOKIE_NAME, "tokenWillBeDeleted", {
-      maxAge: 0,
-      httpOnly: true,
-      Path: Config.COOKIE_PATH,
-      SameSite: "None",
-    });
+    // res.cookie(Config.COOKIE_NAME, "tokenWillBeDeleted", {
+    //   maxAge: 0,
+    //   httpOnly: true,
+    //   Path: Config.COOKIE_PATH,
+    //   SameSite: "None",
+    //   // SameSite: "lax",
+    // });
     return send(res, false, "error", true, 401);
   }
 
   async logout(req, res) {
     await COOKIE.LOGOUT(req, res);
-    res.cookie(Config.COOKIE_NAME, "tokenWillBeDeleted", {
-      maxAge: 0,
-      httpOnly: true,
-      Path: Config.COOKIE_PATH,
-      SameSite: "None",
-    });
+    // res.cookie(Config.COOKIE_NAME, "tokenWillBeDeleted", {
+    //   maxAge: 0,
+    //   httpOnly: true,
+    //   Path: Config.COOKIE_PATH,
+    //   SameSite: "None",
+    //   // SameSite: "lax",
+    // });
     return send(res, true, req.t("success"), false, 200);
   }
 }

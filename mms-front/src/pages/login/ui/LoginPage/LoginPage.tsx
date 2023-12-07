@@ -1,14 +1,13 @@
 import { useCallback } from 'react';
 import { Helmet } from 'react-helmet-async';
 
-import { LocalStorageCache } from '~shared/lib/cache';
+// import { LocalStorageCache } from '~shared/lib/cache';
 import { i18n } from '~shared/lib/i18n';
 import { Navigate, RoutesUrls, useNavigate } from '~shared/lib/router';
-import { useIsAuthenticated } from '~shared/lib/auth';
 import { SignInForm, SignInFormProps } from '~features/auth';
 import { SetLocaleSimpleView } from '~features/locale';
 
-import { useSetUser } from '~entities/user';
+import { useSetUser, useUser } from '~entities/user';
 
 import { LoginLayout } from '../../../layouts';
 
@@ -16,13 +15,13 @@ export interface LoginPageProps {}
 
 export const LoginPage: React.FC<LoginPageProps> = () => {
   const navigate = useNavigate();
-  const isAuth = useIsAuthenticated();
   const setUser = useSetUser();
+  const user = useUser();
   const { t } = i18n;
 
   const handleSignIn: SignInFormProps['onSignIn'] = useCallback(
     ({ authState }) => {
-      LocalStorageCache.flush();
+      // LocalStorageCache.flush();
 
       setUser({ authState }).then(() => {
         navigate(RoutesUrls.employers, { replace: true });
@@ -31,7 +30,7 @@ export const LoginPage: React.FC<LoginPageProps> = () => {
     [navigate, setUser]
   );
 
-  if (isAuth()) {
+  if (user) {
     return <Navigate to={RoutesUrls.employers} replace />;
   }
 

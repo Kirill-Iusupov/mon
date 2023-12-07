@@ -14,7 +14,7 @@ const COOKIE_PATH = process.env.COOKIE_PATH || "/mms/api";
 const MAX_AGE = process.env.MAX_AGE || "6000000";
 
 const ALLOW_HOST = process.env.ALLOW_HOST || "http://mon.sc.on.kg";
-const ALLOW_HOST_LIST = ["http://localhost:3000", ALLOW_HOST];
+const ALLOW_HOST_LIST = [ALLOW_HOST];
 
 const DBUSER = process.env.DBUSER || "DBUSER";
 const DBPASS = process.env.DBPASS || "DBPASS";

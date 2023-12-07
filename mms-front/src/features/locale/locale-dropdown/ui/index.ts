@@ -1,1 +1,1 @@
-export *from './LocaleDropdown'
+export * from './LocaleDropdown';

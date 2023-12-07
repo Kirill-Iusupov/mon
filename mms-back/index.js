@@ -35,12 +35,14 @@ const app = express();
 
 //compression settings*********************************************
 app.use(compression());
+app.use(cookieParser());
 //CORS settings*********************************************
 app.use(cors(corsOptionsDelegate));
-app.use(cookieParser());
+// app.use(cors({ origin: "http://localhost:3000", credentials: true }));
 app.use(express.json());
 app.use(fileUpload());
 app.use(translator);
+
 // app.use("/public", express.static("public"));
 app.use("/", express.static("public"));
 app.use("/mms", express.static("public"));
@@ -51,6 +53,20 @@ if (Config.FAKE_AUTH_MODE === "true") {
 }
 //**********************************************************
 
+// app.use("*", (req, res, next) => {
+//   res.setHeader("Access-Control-Allow-Credentials", true);
+//   res.setHeader(
+//     "Access-Control-Allow-Headers",
+//     "Origin, X-Requested-With, Content-Type, Accept, authorization"
+//   );
+//   res.setHeader("Content-Type", "application/json");
+//   res.setHeader("Access-Control-Allow-Origin", "http://localhost:3000");
+//   res.setHeader(
+//     "Access-Control-Allow-METHODS",
+//     "GET, HEAD, POST, PUT, DELETE, TRACE, OPTIONS, PATCH"
+//   );
+//   next();
+// });
 ///////////////////////////
 app.use("/mms/api/user", require("./user"));
 app.use("/mms/api/personal", require("./personal"));

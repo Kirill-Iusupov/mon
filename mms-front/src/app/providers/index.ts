@@ -15,5 +15,3 @@ export const withProviders = compose<any>(
   withRouter,
   withSuspense
 );
-
-export * as AuthProviderExporter from './AuthProvider';

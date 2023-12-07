@@ -71,9 +71,11 @@ const checkToken = async (req, resp, next, roles) => {
       next();
     }
 
-    // const token = req.headers["authorization"];
-    const token = req.cookies[Config.COOKIE_NAME];
-    // console.log("token", token);
+    const token = req.headers["authorization"];
+    // const token = req.cookies[Config.COOKIE_NAME];
+    // console.log("req.cookies", req.cookies);
+    // console.log("req.headers", req.headers);
+    console.log("token", token);
     req.token = token;
 
     if (!!token) {
@@ -105,8 +107,8 @@ const checkToken = async (req, resp, next, roles) => {
 
 const getTokenData = async (req) => {
   try {
-    // const token = req.headers["authorization"];
-    const token = req.cookies[Config.COOKIE_NAME];
+    const token = req.headers["authorization"];
+    // const token = req.cookies[Config.COOKIE_NAME];
 
     if (!!token) {
       const decodedData = JWT.getTokenData(token);

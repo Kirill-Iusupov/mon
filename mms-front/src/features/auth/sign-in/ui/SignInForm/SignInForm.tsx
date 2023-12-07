@@ -1,6 +1,5 @@
 import { ReactNode, useState } from 'react';
 
-import { useSignIn } from '~shared/lib/auth';
 import { Button, Input } from '~shared/ui';
 import { useTranslation } from '~shared/lib/i18n';
 
@@ -20,7 +19,6 @@ export const SignInForm: React.FC<SignInFormProps> = ({
   langSlot,
   formId = 'form:sign-in',
 }) => {
-  const authSignIn = useSignIn();
   const { t } = useTranslation();
   const [message, setMessage] = useState('');
   const [log, setLogin] = useState('');
@@ -35,33 +33,20 @@ export const SignInForm: React.FC<SignInFormProps> = ({
 
       signIn({ login: log, password: pass })
         .then(({ data, error, message }) => {
-          console.error({ data, error, message });
-
           if (error && data === false) {
             console.error(message);
-            setMessage(t('auth:passwordError') || '111111Неправильный логин или пароль!');
+            setMessage(t('auth:passwordError') || 'Неправильный логин или пароль!');
 
             return;
           }
 
-          if (
-            authSignIn({
-              token: data.token,
-              expiresIn: data.expiresIn,
-              tokenType: data.tokenType,
-            })
-          ) {
-            onSignIn(data);
-            setMessage('');
-          }
+          onSignIn(data);
+          setMessage('');
         })
         .catch((err) => {
           console.error(err);
         });
     };
-  //   },
-  //   [onSignIn, authSignIn]
-  // );
 
   return (
     <div className={styles.bg}>

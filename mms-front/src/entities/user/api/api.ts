@@ -1,33 +1,18 @@
-import { ApiResponseData, api } from '~shared/api';
+import { ApiResponseData, api, createAuthenticatedRequestHandler } from '~shared/api';
 import { setAsyncTimeout } from '~shared/lib/utils';
 
-// import { routes } from './routes';
-import { ApiUserData } from './types';
+import { routes } from './routes';
+import { ApiSignInResponseData } from './types';
 
 export const getUser = async () => {
   let response;
 
   try {
-    // response = await api.post<any, ApiResponseData<ApiUserData>>(routes.getUserData());
-
-    response = {
-      data: {
-        authState: {
-          type: 1,
-          s: 'Шаршенбаева',
-          n: 'Асель',
-          p: 'Кубанычбековна',
-          exp: Date.now() + 12 * 60 * 60 * 1000,
-        },
-        token: 'token',
-        tokenType: 'cookie',
-        expiresIn: 4320,
-      },
-      message: 'success',
-      error: false,
-    };
+    response = await api.post<any, ApiResponseData<ApiSignInResponseData>>(routes.getUserData());
   } catch (error: any) {
     response = error?.response?.data;
+    localStorage.removeItem(import.meta.env.VITE_TOKEN_NAME);
+    localStorage.removeItem(import.meta.env.VITE_TOKEN_TTL);
   }
 
   return response;
@@ -53,5 +38,5 @@ export const mockGetUser = async () => {
     };
   }, 1000);
 
-  return result as ApiResponseData<ApiUserData>;
+  return result as ApiResponseData<ApiSignInResponseData>;
 };

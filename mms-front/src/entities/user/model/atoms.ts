@@ -18,9 +18,7 @@ export const setUserAtom = atom<User | null, { authState: User | null }, Promise
 
       return;
     }
-    // api.interceptors.request.use(createAuthenticatedRequestHandler(token));
 
-    // const response = isTestMode === 'true' ? await mockGetUser() : await getUser();
     const response = await getUser();
     const newValue = response?.data?.authState;
     set(viewerAtom, newValue);

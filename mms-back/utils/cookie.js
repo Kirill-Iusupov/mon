@@ -17,7 +17,8 @@ async function Generate(res) {
 
 //{rowCount} false
 async function Delete(req, res) {
-  const cookieId = md5(String(req.cookies[COOKIE_NAME]));
+  const cookieId = md5(String(req.headers["authorization"]));
+  // const cookieId = md5(String(req.cookies[COOKIE_NAME]));
   res.clearCookie(COOKIE_NAME);
   const { command, rowCount } = await db.query(
     `UPDATE "Session" SET offline=true
@@ -36,14 +37,15 @@ async function GetUser(req) {
     return { role: Config.FAKE_ID_ROLE, id: Config.FAKE_ID_USER };
   }
 
-  // if (req && req.headers["authorization"]) {
-  if (req && req.cookies && COOKIE_NAME in req.cookies) {
+  if (req && req.headers["authorization"]) {
+    // if (req && req.cookies && COOKIE_NAME in req.cookies) {
     // const token = req.headers["authorization"];
     const { rowCount, rows } = await db.query(
       'SELECT * FROM "fn_Session_Get_User"($1)',
       [
         // md5(String(token)),
-        md5(String(req.cookies[COOKIE_NAME])),
+        md5(String(req.headers["authorization"])),
+        // md5(String(req.cookies[COOKIE_NAME])),
       ]
     );
     //  console.log("fn_Session_Get_User",rowCount, rows)

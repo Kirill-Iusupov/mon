@@ -3,9 +3,8 @@ import axios from 'axios';
 import { defaultLocale } from '~shared/lib/l10n';
 
 import { errorHandler, requestHandler, responseHandler } from './interceptors';
-
 export const api = axios.create({
-  withCredentials: true,
+  withCredentials: import.meta.env.DEV ? true : false,
   baseURL: import.meta.env.VITE_API_URL,
   headers: {
     'Accept': 'application/json',

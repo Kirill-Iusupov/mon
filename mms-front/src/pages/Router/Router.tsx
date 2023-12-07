@@ -1,8 +1,7 @@
-import { useEffect, useRef } from 'react';
-import { Route, Routes, useLocation, useNavigate } from 'react-router-dom';
+import { useEffect } from 'react';
+import { Route, Routes, useLocation } from 'react-router-dom';
 
-import { RoutesUrls } from '~shared/lib/router';
-import { RequireAuth } from '~shared/lib/auth';
+import { Navigate, RoutesUrls } from '~shared/lib/router';
 
 import { BaseLayout } from '~pages/layouts';
 import { LoginPage } from '~pages/login';
@@ -14,8 +13,36 @@ import { SchedulePage } from '~pages/schedule';
 import { EmployersPage } from '~pages/employers';
 import { StructurePage } from '~pages/structure';
 import { ReportsPage } from '~pages/reports';
+import { useSetUser, useUser } from '~entities/user';
 
-export const redirectUrl = RoutesUrls.login;
+interface RequireAuthProps {
+  children: JSX.Element;
+  loginPath: string;
+}
+
+const RequireAuth: React.FunctionComponent<RequireAuthProps> = ({ children, loginPath }) => {
+  const user = useUser();
+
+  const isAuth = () => {
+    if (user) {
+      return true;
+    }
+
+    return false;
+  };
+
+  const location = useLocation();
+
+  if (!isAuth()) {
+    // Redirect them to the /login page, but save the current location they were
+    // trying to go to when they were redirected. This allows us to send them
+    // along to that page after they login, which is a nicer user experience
+    // than dropping them off on the home page.
+    return <Navigate to={loginPath} state={{ from: location }} replace />;
+  }
+
+  return children;
+};
 
 const createProtectedElement = (component: JSX.Element) => (
   <RequireAuth loginPath={RoutesUrls.login}>{component}</RequireAuth>
@@ -23,17 +50,14 @@ const createProtectedElement = (component: JSX.Element) => (
 
 export const Router = () => {
   const location = useLocation();
-  const effectCalled = useRef(false);
-  const navigate = useNavigate();
+  const user = useUser();
+  const setUser = useSetUser();
 
   useEffect(() => {
-    // only execute the effect first time around
-    if (!effectCalled.current) {
-      // checkSuccessHandler();
-      navigate(RoutesUrls.employers);
-      effectCalled.current = true;
+    if (!user) {
+      setUser({ authState: null });
     }
-  }, [navigate]);
+  }, []);
 
   return (
     <Routes location={location} key={RoutesUrls.login}>

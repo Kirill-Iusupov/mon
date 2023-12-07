@@ -97,9 +97,7 @@ class UserController {
         res,
         {
           authState: {
-            // id: userData.id,
             type: userData.type,
-            // id_avn: userData.id_avn,
             s: userData.s,
             n: userData.n,
             p: userData.p,

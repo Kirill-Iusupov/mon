@@ -18,28 +18,42 @@ export const AdminTablePage: FC<{ data: any }> = ({ data }) => {
       key: 'id',
     },
     {
-      title: 'ФИО сотрудника',
+      title: 'Cотрудник',
       dataIndex: 'name',
       key: 'name',
     },
     {
       title: 'Название командировки',
+      dataIndex: 'business_ru',
       key: 'Название командировки',
     },
     {
       title: 'Время командировки',
+      children: [
+        {
+          title: 'Дата начала',
+          dataIndex: 'beg_date',
+        },
+        {
+          title: 'Дата окончания',
+          dataIndex: 'end_date',
+        },
+      ],
       key: 'Время командировки',
     },
     {
       title: 'Страна',
+      dataIndex: 'country',
       key: 'Страна',
     },
     {
       title: 'Вид командировки',
+      dataIndex: 'business_trip',
       key: 'Вид командировки',
     },
     {
       title: 'Тип командировки',
+      dataIndex: 'business_type',
       key: 'Тип командировки',
     },
     {

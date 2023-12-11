@@ -13,11 +13,13 @@ export const AdminTablePage: FC<{ data: any }> = ({ data }) => {
   const columns = [
     {
       title: '№',
-      dataIndex: 'id',
+      dataIndex: 'id_employee',
       key: 'id',
+      width: '0',
     },
     {
       title: 'Структура',
+      dataIndex: 'department',
       key: 'structure',
     },
     {
@@ -27,6 +29,7 @@ export const AdminTablePage: FC<{ data: any }> = ({ data }) => {
     },
     {
       title: 'Должность',
+      dataIndex: 'post',
       key: 'job',
     },
     {

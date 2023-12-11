@@ -14,22 +14,41 @@ export const AdminTablePage: FC<{ data: any }> = ({ data }) => {
   const columns = [
     {
       title: '№',
-      dataIndex: 'id',
+      dataIndex: 'id_employee',
       key: 'id',
     },
     {
       title: 'Ф.И.О.',
-      dataIndex: 'name',
+      children: [
+        {
+          dataIndex: 'surname',
+          width: '0',
+        },
+        {
+          width: '0',
+          dataIndex: 'name',
+        },
+        {
+          width: '0',
+          dataIndex: 'patronymic',
+        },
+      ],
       key: 'name',
     },
     {
       title: 'ПИН',
+      dataIndex: 'pin',
       key: 'pin',
     },
     {
       title: 'Дата рождения',
       key: 'birthDate',
-      dataIndex: 'birthDate',
+      dataIndex: 'birth_date',
+      render: (birth_date: string) => {
+        const date = new Date(birth_date).toLocaleDateString();
+
+        return <p>{date}</p>;
+      },
     },
     {
       title: 'Активен',

@@ -9,8 +9,6 @@ import { Filter } from '~widgets/filter';
 const visAtom = atom(false);
 
 export const EmployerTablePage: FC<{ data: any }> = ({ data }) => {
-  console.log(data);
-
   const [vis, setVis] = useAtom(visAtom);
 
   const columns = [
@@ -20,28 +18,42 @@ export const EmployerTablePage: FC<{ data: any }> = ({ data }) => {
       key: 'id',
     },
     {
-      title: 'ФИО сотрудника',
+      title: 'Cотрудник',
       dataIndex: 'name',
       key: 'name',
     },
     {
       title: 'Название командировки',
+      dataIndex: 'business_ru',
       key: 'Название командировки',
     },
     {
       title: 'Время командировки',
+      children: [
+        {
+          title: 'Дата начала',
+          dataIndex: 'beg_date',
+        },
+        {
+          title: 'Дата окончания',
+          dataIndex: 'end_date',
+        },
+      ],
       key: 'Время командировки',
     },
     {
       title: 'Страна',
+      dataIndex: 'country',
       key: 'Страна',
     },
     {
       title: 'Вид командировки',
+      dataIndex: 'business_trip',
       key: 'Вид командировки',
     },
     {
       title: 'Тип командировки',
+      dataIndex: 'business_type',
       key: 'Тип командировки',
     },
     {
@@ -50,6 +62,7 @@ export const EmployerTablePage: FC<{ data: any }> = ({ data }) => {
       render: () => (
         <Space size="middle">
           <button className="p-[5px] text-white rounded">Удалить</button>
+          <button className="p-[5px] text-white rounded">Редактировать</button>
         </Space>
       ),
     },
@@ -64,7 +77,7 @@ export const EmployerTablePage: FC<{ data: any }> = ({ data }) => {
       <div className={vis ? 'absolute z-50' : 'hidden'}>
         <AddModalBusinessTrip set={handleVis} />
       </div>
-      <Filter handleVis={handleVis} page="bt" role="user" />
+      <Filter handleVis={handleVis} page="bt" role="admin" />
       <Table columns={columns} dataSource={data} />
     </>
   );
